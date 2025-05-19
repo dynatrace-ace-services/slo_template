@@ -27,7 +27,7 @@
     document:documents:read
     document:documents:admin
 
-## Vairbales
+## Varibales
 
     export DT_GRAIL_TENANT_URL=https://mytenantid.apps.dynatrace.com
     export DT_OAUTH_CLIENT_ID_MONACO=dt0s02.ABCDEF
