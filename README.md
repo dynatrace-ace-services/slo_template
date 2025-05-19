@@ -33,6 +33,13 @@
     export DT_OAUTH_CLIENT_ID_MONACO=dt0s02.ABCDEF
     export DT_OAUTH_CLIENT_SECRET_MONACO=dt0s02.ABCDEF.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
+## Installation (on linux)
+
+    git clone https://github.com/dynatrace-ace-services/slo_template
+    cd slo_template
+    curl -L https://github.com/Dynatrace/dynatrace-configuration-as-code/releases/latest/download/monaco-linux-amd64 -o monaco
+    chmod +x monaco
+
 ## Deploiment
 
     monaco deploy manifest.yaml -p slo_lowleveltemplate
