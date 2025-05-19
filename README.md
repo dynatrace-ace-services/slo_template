@@ -13,7 +13,7 @@
         - Service Success Rate = dt.entity.service
         - Key Request Success Rate = dt.entity.service_method
 
-3) Automatic activation on the SLO template by putting these tags on each entity :
+3) Automatic activation SLO template by putting these tags on each entity :
    
         - slo:<context_applicatif>
         - slo_level:high|medium|level
