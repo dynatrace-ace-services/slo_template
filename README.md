@@ -34,7 +34,7 @@
         - SLO value and Burn-rate alertfor key request successrate
         
 
-## Permissions OAUTH2 for Monaco
+## Permissions Client OAUTH2 for MONACO
 use [myaccount](https://myaccount.dynatrace.com/accounts) to generate CLIENT_ID (DT_OAUTH_CLIENT_ID_MONACO) and SECRET (DT_OAUTH_CLIENT_SECRET_MONACO)
 
     app-engine:apps:run
@@ -70,70 +70,70 @@ use [myaccount](https://myaccount.dynatrace.com/accounts) to generate CLIENT_ID 
     export DT_OAUTH_CLIENT_ID_MONACO=dt0s02.ABCDEF
     export DT_OAUTH_CLIENT_SECRET_MONACO=dt0s02.ABCDEF.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-## Installation (on linux)
+## Installation
 
     git clone https://github.com/dynatrace-ace-services/slo_template
     cd slo_template
     curl -L https://github.com/Dynatrace/dynatrace-configuration-as-code/releases/latest/download/monaco-linux-amd64 -o monaco
     chmod +x monaco
 
-## Deploiment
+## Deployment
 
     monaco deploy manifest.yaml -p slo_lowleveltemplate
     monaco deploy manifest.yaml -p slo_mediumleveltemplate
     monaco deploy manifest.yaml -p slo_highleveltemplate
 
-## Default value (for linux)
-(for windows => 
+## Default value
 
-- Low level
+- High level
 
       #slo_period_day default 7
-      export Slo_period_day=7
+      export Slo_period_day=21
       
       #Target
-      export Target_lowslo=90
-      export Target_lowslo_userexperiencevitallcp=$Target_lowslo
-      export Target_lowslo_userexperiencesuccessrate=$Target_lowslo
-      export Target_lowslo_servicesuccessrate=$Target_lowslo
-      export Target_lowslo_servicemethodsuccessrate=$Target_lowslo
+      export Target_highslo=98
+      export Target_highslo_userexperiencevitallcp=$Target_highslo
+      export Target_highslo_userexperiencesuccessrate=$Target_highslo
+      export Target_highslo_servicesuccessrate=$Target_highslo
+      export Target_highslo_servicemethodsuccessrate=$Target_highslo
       
       #Warning
-      export Warning_lowslo=95
-      export Warning_lowslo_userexperiencevitallcp=$Warning_lowslo
-      export Warning_lowslo_userexperiencesuccessrate=$Warning_lowslo
-      export Warning_lowslo_servicesuccessrate=$Warning_lowslo
-      export Warning_lowslo_servicemethodsuccessrate=$Warning_lowslo
+      export Warning_highslo=99
+      export Warning_highslo_userexperiencevitallcp=$Warning_highslo
+      export Warning_highslo_userexperiencesuccessrate=$Warning_highslo
+      export Warning_highslo_servicesuccessrate=$Warning_highslo
+      export Warning_highslo_servicemethodsuccessrate=$Warning_highslo
       
       #Burnrate
-      export Burnrate_lowslo=20
-      export Burnrate_lowslo_userexperiencevitallcp=$Burnrate_lowslo
-      export Burnrate_lowslo_userexperiencesuccessrate=$Burnrate_lowslo
-      export Burnrate_lowslo_servicesuccessrate=$Burnrate_lowslo
-      export Burnrate_lowslo_servicemethodsuccessrate=$Burnrate_lowslo
+      export Burnrate_highslo=4
+      export Burnrate_highslo_userexperiencevitallcp=$Burnrate_highslo
+      export Burnrate_highslo_userexperiencesuccessrate=$Burnrate_highslo
+      export Burnrate_highslo_servicesuccessrate=$Burnrate_highslo
+      export Burnrate_highslo_servicemethodsuccessrate=$Burnrate_highslo
       
       #Violatingsamples
-      export Violatingsamples_lowslo_userexperience=20
-      export Violatingsamples_lowslo=5
-      export Violatingsamples_lowslo_userexperiencevitallcp=$Violatingsamples_lowslo_userexperience
-      export Violatingsamples_lowslo_userexperiencesuccessrate=$Violatingsamples_lowslo_userexperience
-      export Violatingsamples_lowslo_servicesuccessrate=$Violatingsamples_lowslo
-      export Violatingsamples_lowslo_servicemethodsuccessrate=$Violatingsamples_lowslo
+      export Violatingsamples_highslo_userexperience=10
+      export Violatingsamples_highslo=2
+      export Violatingsamples_highslo_userexperiencevitallcp=$Violatingsamples_highslo_userexperience
+      export Violatingsamples_highslo_userexperiencesuccessrate=$Violatingsamples_highslo_userexperience
+      export Violatingsamples_highslo_servicesuccessrate=$Violatingsamples_highslo
+      export Violatingsamples_highslo_servicemethodsuccessrate=$Violatingsamples_highslo
       
       #Slidingwindow
-      export Slidingwindow_lowslo_userexperience=30
-      export Slidingwindow_lowslo=10
-      export Slidingwindow_lowslo_userexperiencevitallcp=$Slidingwindow_lowslo_userexperience
-      export Slidingwindow_lowslo_userexperiencesuccessrate=$Slidingwindow_lowslo_userexperience
-      export Slidingwindow_lowslo_servicesuccessrate=$Slidingwindow_lowslo
-      export Slidingwindow_lowslo_servicemethodsuccessrate=$Slidingwindow_lowslo
+      export Slidingwindow_highslo_userexperience=15
+      export Slidingwindow_highslo=5
+      export Slidingwindow_highslo_userexperiencevitallcp=$Slidingwindow_highslo_userexperience
+      export Slidingwindow_highslo_userexperiencesuccessrate=$Slidingwindow_highslo_userexperience
+      export Slidingwindow_highslo_servicesuccessrate=$Slidingwindow_highslo
+      export Slidingwindow_highslo_servicemethodsuccessrate=$Slidingwindow_highslo
       
       #Dealertingsamples
-      export Dealertingsamples_lowslo=5
-      export Dealertingsamples_lowslo_userexperiencevitallcp=$Dealertingsamples_lowslo
-      export Dealertingsamples_lowslo_userexperiencesuccessrate=$Dealertingsamples_lowslo
-      export Dealertingsamples_lowslo_servicesuccessrate=$Dealertingsamples_lowslo
-      export Dealertingsamples_lowslo_servicemethodsuccessrate=$Dealertingsamples_lowslo
+      export Dealertingsamples_highslo=5
+      export Dealertingsamples_highslo_userexperiencevitallcp=$Dealertingsamples_highslo
+      export Dealertingsamples_highslo_userexperiencesuccessrate=$Dealertingsamples_highslo
+      export Dealertingsamples_highslo_servicesuccessrate=$Dealertingsamples_highslo
+      export Dealertingsamples_highslo_servicemethodsuccessrate=$Dealertingsamples_highslo
+
 
 - Medium level
 
@@ -184,51 +184,52 @@ use [myaccount](https://myaccount.dynatrace.com/accounts) to generate CLIENT_ID 
       export Dealertingsamples_mediumslo_servicesuccessrate=$Dealertingsamples_mediumslo
       export Dealertingsamples_mediumslo_servicemethodsuccessrate=$Dealertingsamples_mediumslo
 
-- High level
+- Low level
 
       #slo_period_day default 7
-      export Slo_period_day=21
+      export Slo_period_day=7
       
       #Target
-      export Target_highslo=98
-      export Target_highslo_userexperiencevitallcp=$Target_highslo
-      export Target_highslo_userexperiencesuccessrate=$Target_highslo
-      export Target_highslo_servicesuccessrate=$Target_highslo
-      export Target_highslo_servicemethodsuccessrate=$Target_highslo
+      export Target_lowslo=90
+      export Target_lowslo_userexperiencevitallcp=$Target_lowslo
+      export Target_lowslo_userexperiencesuccessrate=$Target_lowslo
+      export Target_lowslo_servicesuccessrate=$Target_lowslo
+      export Target_lowslo_servicemethodsuccessrate=$Target_lowslo
       
       #Warning
-      export Warning_highslo=99
-      export Warning_highslo_userexperiencevitallcp=$Warning_highslo
-      export Warning_highslo_userexperiencesuccessrate=$Warning_highslo
-      export Warning_highslo_servicesuccessrate=$Warning_highslo
-      export Warning_highslo_servicemethodsuccessrate=$Warning_highslo
+      export Warning_lowslo=95
+      export Warning_lowslo_userexperiencevitallcp=$Warning_lowslo
+      export Warning_lowslo_userexperiencesuccessrate=$Warning_lowslo
+      export Warning_lowslo_servicesuccessrate=$Warning_lowslo
+      export Warning_lowslo_servicemethodsuccessrate=$Warning_lowslo
       
       #Burnrate
-      export Burnrate_highslo=4
-      export Burnrate_highslo_userexperiencevitallcp=$Burnrate_highslo
-      export Burnrate_highslo_userexperiencesuccessrate=$Burnrate_highslo
-      export Burnrate_highslo_servicesuccessrate=$Burnrate_highslo
-      export Burnrate_highslo_servicemethodsuccessrate=$Burnrate_highslo
+      export Burnrate_lowslo=20
+      export Burnrate_lowslo_userexperiencevitallcp=$Burnrate_lowslo
+      export Burnrate_lowslo_userexperiencesuccessrate=$Burnrate_lowslo
+      export Burnrate_lowslo_servicesuccessrate=$Burnrate_lowslo
+      export Burnrate_lowslo_servicemethodsuccessrate=$Burnrate_lowslo
       
       #Violatingsamples
-      export Violatingsamples_highslo_userexperience=10
-      export Violatingsamples_highslo=2
-      export Violatingsamples_highslo_userexperiencevitallcp=$Violatingsamples_highslo_userexperience
-      export Violatingsamples_highslo_userexperiencesuccessrate=$Violatingsamples_highslo_userexperience
-      export Violatingsamples_highslo_servicesuccessrate=$Violatingsamples_highslo
-      export Violatingsamples_highslo_servicemethodsuccessrate=$Violatingsamples_highslo
+      export Violatingsamples_lowslo_userexperience=20
+      export Violatingsamples_lowslo=5
+      export Violatingsamples_lowslo_userexperiencevitallcp=$Violatingsamples_lowslo_userexperience
+      export Violatingsamples_lowslo_userexperiencesuccessrate=$Violatingsamples_lowslo_userexperience
+      export Violatingsamples_lowslo_servicesuccessrate=$Violatingsamples_lowslo
+      export Violatingsamples_lowslo_servicemethodsuccessrate=$Violatingsamples_lowslo
       
       #Slidingwindow
-      export Slidingwindow_highslo_userexperience=15
-      export Slidingwindow_highslo=5
-      export Slidingwindow_highslo_userexperiencevitallcp=$Slidingwindow_highslo_userexperience
-      export Slidingwindow_highslo_userexperiencesuccessrate=$Slidingwindow_highslo_userexperience
-      export Slidingwindow_highslo_servicesuccessrate=$Slidingwindow_highslo
-      export Slidingwindow_highslo_servicemethodsuccessrate=$Slidingwindow_highslo
+      export Slidingwindow_lowslo_userexperience=30
+      export Slidingwindow_lowslo=10
+      export Slidingwindow_lowslo_userexperiencevitallcp=$Slidingwindow_lowslo_userexperience
+      export Slidingwindow_lowslo_userexperiencesuccessrate=$Slidingwindow_lowslo_userexperience
+      export Slidingwindow_lowslo_servicesuccessrate=$Slidingwindow_lowslo
+      export Slidingwindow_lowslo_servicemethodsuccessrate=$Slidingwindow_lowslo
       
       #Dealertingsamples
-      export Dealertingsamples_highslo=5
-      export Dealertingsamples_highslo_userexperiencevitallcp=$Dealertingsamples_highslo
-      export Dealertingsamples_highslo_userexperiencesuccessrate=$Dealertingsamples_highslo
-      export Dealertingsamples_highslo_servicesuccessrate=$Dealertingsamples_highslo
-      export Dealertingsamples_highslo_servicemethodsuccessrate=$Dealertingsamples_highslo
+      export Dealertingsamples_lowslo=5
+      export Dealertingsamples_lowslo_userexperiencevitallcp=$Dealertingsamples_lowslo
+      export Dealertingsamples_lowslo_userexperiencesuccessrate=$Dealertingsamples_lowslo
+      export Dealertingsamples_lowslo_servicesuccessrate=$Dealertingsamples_lowslo
+      export Dealertingsamples_lowslo_servicemethodsuccessrate=$Dealertingsamples_lowslo
+
