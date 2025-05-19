@@ -20,7 +20,7 @@
         - slo_alert:on|off
         - slo_alert_pert:on|off (for application only)
 
-4) Use recommanded values for each template High, Medium and Low, or adapt them for your context :
+4) Use recommended values for each template High, Medium and Low, or adapt them for your context :
 
         - target / warning
         - burn rate threshold
