@@ -46,7 +46,8 @@
     monaco deploy manifest.yaml -p slo_mediumleveltemplate
     monaco deploy manifest.yaml -p slo_highleveltemplate
 
-## Default value
+## Default value (for linux)
+(for windows => 
 
 - Low level
 
