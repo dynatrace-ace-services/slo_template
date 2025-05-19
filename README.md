@@ -85,8 +85,8 @@ use [myaccount](https://myaccount.dynatrace.com/accounts) to generate CLIENT_ID 
 
 ## Default value 
 Optional :  
-  No need to set these slo variables.  
-  If you need to change one of them, you've just to set the specific variable and (re)deploy the SLO template with Monaco  
+  No need to set these slo variables,  
+  if you need to change one of them, you've just to set the specific variable and (re)deploy the SLO template with Monaco.  
 
 - High level
 
