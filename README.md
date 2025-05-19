@@ -28,10 +28,10 @@
    
 5) Use SLO segment based on your application context to open the SLO template Dashboard and display  :
 
-        - SLO and burn rate for application performance
-        - SLO and burn rate for application successrate
-        - SLO and burn rate for service successrate
-        - SLO and burn rate for key request successrate
+        - SLO value and Burn-rate alert for application performance
+        - SLO value and Burn-rate alert for application successrate
+        - SLO value and Burn-rate alert for service successrate
+        - SLO value and Burn-rate alertfor key request successrate
         
 
 ## Permissions OAUTH2
