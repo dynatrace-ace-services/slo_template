@@ -1,3 +1,23 @@
+# SLO template for latest Platform
+
+1) deploy with monaco 3 SLO templates (High, Medium and Low) based on :
+- Application Performance
+- Application Success Rate
+- Service Success Rate 
+- Key Request Success Rat  
+
+2) Activate SLO template on your application context with these tags :
+- slo:<context_applicatif>
+- slo_level:high|medium|level
+- slo_alert:on|off
+- slo_alert_pert:on|off (for application only)
+
+use the custom tags API on your entities :
+- dt.entity.application (for RUM on GRAIL only)
+- dt.entity.service
+- dt.entity.service_method
+
+
 ## Permissions OAUTH2
 
     app-engine:apps:run
