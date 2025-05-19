@@ -34,31 +34,31 @@
         - SLO value and Burn-rate alertfor key request successrate
         
 
-## Permissions OAUTH2
+## Permissions OAUTH2 for Monaco
 
     app-engine:apps:run
     settings:objects:read
     settings:objects:write
-    settings:objects:admin
+    #settings:objects:admin
     settings:schemas:read
-    automation:workflows:read
-    automation:workflows:write
-    automation:rules:read
-    automation:rules:write
-    automation:calendars:read
-    automation:calendars:write
-    automation:workflows:admin
-    storage:bucket-definitions:read
-    storage:bucket-definitions:write
-    slo:objective-templates:read
+    #automation:workflows:read
+    #automation:workflows:write
+    #automation:rules:read
+    #automation:rules:write
+    #automation:calendars:read
+    #automation:calendars:write
+    #automation:workflows:admin
+    #storage:bucket-definitions:read
+    #storage:bucket-definitions:write
+    #slo:objective-templates:read
     slo:slos:read
     slo:slos:write
     storage:filter-segments:read
     storage:filter-segments:write
     storage:filter-segments:share
     storage:filter-segments:admin
-    openpipeline:configurations:read
-    openpipeline:configurations:write
+    #openpipeline:configurations:read
+    #openpipeline:configurations:write
     document:documents:write
     document:documents:read
     document:documents:admin
