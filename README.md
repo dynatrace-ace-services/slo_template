@@ -27,6 +27,12 @@
     document:documents:read
     document:documents:admin
 
+## Vairbales
+
+    export DT_GRAIL_TENANT_URL=https://mytenantid.apps.dynatrace.com
+    export DT_OAUTH_CLIENT_ID_MONACO=dt0s02.ABCDEF
+    export DT_OAUTH_CLIENT_SECRET_MONACO=dt0s02.ABCDEF.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 ## Deploiment
 
     monaco deploy manifest.yaml -p slo_lowleveltemplate
