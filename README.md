@@ -35,6 +35,7 @@
         
 
 ## Permissions OAUTH2 for Monaco
+use [myaccount](https://myaccount.dynatrace.com/accounts) to generate CLIENT_ID (DT_OAUTH_CLIENT_ID_MONACO) and SECRET (DT_OAUTH_CLIENT_SECRET_MONACO)
 
     app-engine:apps:run
     settings:objects:read
@@ -63,7 +64,7 @@
     document:documents:read
     document:documents:admin
 
-## Varibales
+## Variables for MONACO
 
     export DT_GRAIL_TENANT_URL=https://mytenantid.apps.dynatrace.com
     export DT_OAUTH_CLIENT_ID_MONACO=dt0s02.ABCDEF
