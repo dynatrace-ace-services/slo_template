@@ -83,13 +83,13 @@
       export Violatingsamples_lowslo_servicesuccessrate=$Violatingsamples_lowslo
       export Violatingsamples_lowslo_servicemethodsuccessrate=$Violatingsamples_lowslo
       
-      #Slingwindow
-      export Slingwindow_lowslo_userexperience=30
-      export Slingwindow_lowslo=10
-      export Slingwindow_lowslo_userexperiencevitallcp=$Slingwindow_lowslo_userexperience
-      export Slingwindow_lowslo_userexperiencesuccessrate=$Slingwindow_lowslo_userexperience
-      export Slingwindow_lowslo_servicesuccessrate=$Slingwindow_lowslo
-      export Slingwindow_lowslo_servicemethodsuccessrate=$Slingwindow_lowslo
+      #Slidingwindow
+      export Slidingwindow_lowslo_userexperience=30
+      export Slidingwindow_lowslo=10
+      export Slidingwindow_lowslo_userexperiencevitallcp=$Slidingwindow_lowslo_userexperience
+      export Slidingwindow_lowslo_userexperiencesuccessrate=$Slidingwindow_lowslo_userexperience
+      export Slidingwindow_lowslo_servicesuccessrate=$Slidingwindow_lowslo
+      export Slidingwindow_lowslo_servicemethodsuccessrate=$Slidingwindow_lowslo
       
       #Dealertingsamples
       export Dealertingsamples_lowslo=5
@@ -132,13 +132,13 @@
       export Violatingsamples_mediumslo_servicesuccessrate=$Violatingsamples_mediumslo
       export Violatingsamples_mediumslo_servicemethodsuccessrate=$Violatingsamples_mediumslo
       
-      #Slingwindow
-      export Slingwindow_mediumslo_userexperience=30
-      export Slingwindow_mediumslo=5
-      export Slingwindow_mediumslo_userexperiencevitallcp=$Slingwindow_mediumslo_userexperience
-      export Slingwindow_mediumslo_userexperiencesuccessrate=$Slingwindow_mediumslo_userexperience
-      export Slingwindow_mediumslo_servicesuccessrate=$Slingwindow_mediumslo
-      export Slingwindow_mediumslo_servicemethodsuccessrate=$Slingwindow_mediumslo
+      #Slidingwindow
+      export Slidingwindow_mediumslo_userexperience=30
+      export Slidingwindow_mediumslo=5
+      export Slidingwindow_mediumslo_userexperiencevitallcp=$Slidingwindow_mediumslo_userexperience
+      export Slidingwindow_mediumslo_userexperiencesuccessrate=$Slidingwindow_mediumslo_userexperience
+      export Slidingwindow_mediumslo_servicesuccessrate=$Slidingwindow_mediumslo
+      export Slidingwindow_mediumslo_servicemethodsuccessrate=$Slidingwindow_mediumslo
       
       #Dealertingsamples
       export Dealertingsamples_mediumslo=5
@@ -181,13 +181,13 @@
       export Violatingsamples_highslo_servicesuccessrate=$Violatingsamples_highslo
       export Violatingsamples_highslo_servicemethodsuccessrate=$Violatingsamples_highslo
       
-      #Slingwindow
-      export Slingwindow_highslo_userexperience=15
-      export Slingwindow_highslo=5
-      export Slingwindow_highslo_userexperiencevitallcp=$Slingwindow_highslo_userexperience
-      export Slingwindow_highslo_userexperiencesuccessrate=$Slingwindow_highslo_userexperience
-      export Slingwindow_highslo_servicesuccessrate=$Slingwindow_highslo
-      export Slingwindow_highslo_servicemethodsuccessrate=$Slingwindow_highslo
+      #Slidingwindow
+      export Slidingwindow_highslo_userexperience=15
+      export Slidingwindow_highslo=5
+      export Slidingwindow_highslo_userexperiencevitallcp=$Slidingwindow_highslo_userexperience
+      export Slidingwindow_highslo_userexperiencesuccessrate=$Slidingwindow_highslo_userexperience
+      export Slidingwindow_highslo_servicesuccessrate=$Slidingwindow_highslo
+      export Slidingwindow_highslo_servicemethodsuccessrate=$Slidingwindow_highslo
       
       #Dealertingsamples
       export Dealertingsamples_highslo=5
