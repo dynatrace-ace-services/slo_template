@@ -84,7 +84,9 @@ use [myaccount](https://myaccount.dynatrace.com/accounts) to generate CLIENT_ID 
     monaco deploy manifest.yaml -p slo_highleveltemplate
 
 ## Default value 
-(Optional : no need to set these slo variables. If wuou need change one of them, you've just to set the specific variables and (re)deploy the SLO template with Monaco)
+Optional :  
+  No need to set these slo variables.  
+  If you need to change one of them, you've just to set the specific variable and (re)deploy the SLO template with Monaco  
 
 - High level
 
