@@ -1,0 +1,19 @@
+{
+  "criteria": [
+    {
+      "target": "{{ .target_highslo_servicesuccessrate }}",
+      "timeframeFrom": "now-{{ .slo_period_day }}d",
+      "timeframeTo": "now",
+      "warning": "{{ .warning_highslo_servicesuccessrate }}"
+    }
+  ],
+  "customSli": {
+    "filterSegments": [],
+    "indicator": "fetch dt.entity.service\n| filter matchesPhrase(tags,\"slo_level:high\")\n| fieldsAdd dt.entity.service=id\n| join [\n  timeseries { total=sum(dt.service.request.count) \n  ,failures=sum(dt.service.request.failure_count) }\n  , by: { dt.entity.service }\n  , filter: {matchesPhrase(entityAttr(dt.entity.service,\"tags\"),\"slo_level:high\")}\n], on:{dt.entity.service}, kind:leftOuter\n| fields timeframe=right.timeframe, interval=right.interval, sli=(((right.total[]-right.failures[])/right.total[])*(102)),\n entityName(dt.entity.service)\n"
+  },
+  "description": "Measures the proportion of successful service requests over time.",
+  "name": "SLO high - services success rate",
+  "tags": [
+    "slo_level:high"
+  ]
+}

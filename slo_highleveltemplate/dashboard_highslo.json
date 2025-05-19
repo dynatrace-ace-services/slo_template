@@ -1,0 +1,1201 @@
+{
+    "version": 18,
+    "variables": [],
+    "tiles": {
+        "49": {
+            "title": "SLO burn rate problem (count)",
+            "type": "data",
+            "query": "fetch dt.davis.problems\n| filter event.kind == \"DAVIS_PROBLEM\" and matchesPhrase(event.name,\"SLO Burn rate\")\n| fieldsAdd id=affected_entity_ids[0]\n| filter isNotNull(id)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service_method\"), entityName(id, type:\"dt.entity.service_method\"))\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service\"), entityName(id, type:\"dt.entity.service\"), else:entity)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.application\"), entityName(id, type:\"dt.entity.application\"), else:entity)\n| maketimeseries `SLO Burn rate problem`=count(), by:{ event.name }, nonempty:true\n\n",
+            "visualization": "barChart",
+            "visualizationSettings": {
+                "thresholds": [{
+                        "id": 1,
+                        "field": "",
+                        "title": "",
+                        "isEnabled": false,
+                        "rules": [{
+                                "id": 0,
+                                "color": {
+                                    "Default": "var(--dt-colors-charts-status-ideal-default, #2f6863)"
+                                },
+                                "comparator": "≥",
+                                "label": "",
+                                "value": 99.8
+                            }, {
+                                "id": 1,
+                                "color": {
+                                    "Default": "var(--dt-colors-charts-status-warning-default, #eca440)"
+                                },
+                                "comparator": "≥",
+                                "label": "",
+                                "value": 99
+                            }, {
+                                "id": 2,
+                                "color": {
+                                    "Default": "var(--dt-colors-charts-status-critical-default, #c4233b)"
+                                },
+                                "comparator": "≥",
+                                "label": "",
+                                "value": 0
+                            }
+                        ]
+                    }
+                ],
+                "chartSettings": {
+                    "gapPolicy": "gap",
+                    "circleChartSettings": {
+                        "groupingThresholdType": "relative",
+                        "groupingThresholdValue": 0,
+                        "valueType": "relative"
+                    },
+                    "categoryOverrides": {},
+                    "curve": "linear",
+                    "pointsDisplay": "auto",
+                    "categoricalBarChartSettings": {
+                        "layout": "horizontal",
+                        "categoryAxisTickLayout": "horizontal",
+                        "scale": "absolute",
+                        "groupMode": "stacked",
+                        "colorPaletteMode": "multi-color",
+                        "valueAxisScale": "linear",
+                        "categoryAxisLabel": "entity,event.name,id,display_id,event.id,event.kind",
+                        "valueAxisLabel": "interval",
+                        "tooltipVariant": "single"
+                    },
+                    "colorPalette": "purple-rain",
+                    "valueRepresentation": "absolute",
+                    "truncationMode": "middle",
+                    "xAxisScaling": "auto",
+                    "xAxisLabel": "timeframe",
+                    "xAxisIsLabelVisible": false,
+                    "hiddenLegendFields": ["id", "display_id", "event.id", "event.kind"],
+                    "fieldMapping": {
+                        "timestamp": "timeframe",
+                        "leftAxisValues": ["SLO Burn rate problem"]
+                    },
+                    "leftYAxisSettings": {
+                        "isLabelVisible": true,
+                        "label": "",
+                        "min": "auto",
+                        "max": "auto",
+                        "scale": "linear"
+                    },
+                    "seriesOverrides": [],
+                    "legend": {
+                        "position": "auto",
+                        "hidden": false
+                    },
+                    "rightYAxisSettings": {
+                        "isLabelVisible": true,
+                        "label": "SLO Burn rate problem",
+                        "scale": "linear"
+                    },
+                    "tooltip": {
+                        "seriesDisplayMode": "single-line",
+                        "variant": "single"
+                    }
+                },
+                "singleValue": {
+                    "showLabel": true,
+                    "label": "",
+                    "prefixIcon": "AnalyticsIcon",
+                    "isIconVisible": false,
+                    "autoscale": true,
+                    "alignment": "center",
+                    "colorThresholdTarget": "value"
+                },
+                "table": {
+                    "rowDensity": "condensed",
+                    "enableSparklines": false,
+                    "hiddenColumns": [],
+                    "linewrapEnabled": false,
+                    "lineWrapIds": [],
+                    "monospacedFontEnabled": false,
+                    "monospacedFontColumns": [],
+                    "columnWidths": {},
+                    "columnTypeOverrides": [{
+                            "fields": ["SLO Burn rate problem"],
+                            "value": "sparkline",
+                            "id": 1747390814137
+                        }
+                    ],
+                    "columnOrder": ["[\"timeframe\",\"start\"]", "[\"timeframe\",\"end\"]", "[\"interval\"]", "[\"event.name\"]", "[\"SLO Burn rate problem\"]"],
+                    "sortBy": [{
+                            "columnId": "[\"timeframe\",\"end\"]",
+                            "direction": "ascending"
+                        }
+                    ]
+                },
+                "honeycomb": {
+                    "shape": "hexagon",
+                    "legend": {
+                        "hidden": false,
+                        "position": "auto",
+                        "ratio": "auto"
+                    },
+                    "dataMappings": {},
+                    "displayedFields": [],
+                    "truncationMode": "middle",
+                    "colorMode": "color-palette",
+                    "colorPalette": "categorical"
+                },
+                "histogram": {
+                    "legend": {
+                        "position": "auto"
+                    },
+                    "yAxis": {
+                        "label": "Frequency",
+                        "isLabelVisible": true,
+                        "scale": "linear"
+                    },
+                    "colorPalette": "categorical",
+                    "dataMappings": [{
+                            "valueAxis": "interval",
+                            "rangeAxis": ""
+                        }
+                    ],
+                    "variant": "single",
+                    "truncationMode": "middle",
+                    "displayedFields": ["entity", "event.name", "id", "display_id", "event.id", "event.kind"]
+                },
+                "valueBoundaries": {
+                    "min": "auto",
+                    "max": "auto"
+                },
+                "autoSelectVisualization": false,
+                "legend": {
+                    "showLegend": false,
+                    "position": "auto",
+                    "ratio": 28
+                },
+                "unitsOverrides": [{
+                        "identifier": "SLO Burn rate problem duration",
+                        "unitCategory": "time",
+                        "baseUnit": "nanosecond",
+                        "displayUnit": null,
+                        "decimals": 1,
+                        "suffix": "",
+                        "delimiter": false,
+                        "added": 1746794539860
+                    }, {
+                        "identifier": "SLI service success rate",
+                        "unitCategory": "percentage",
+                        "baseUnit": "percent",
+                        "displayUnit": null,
+                        "decimals": 1,
+                        "suffix": "",
+                        "delimiter": false,
+                        "added": 1746794566449
+                    }, {
+                        "identifier": "interval",
+                        "unitCategory": "time",
+                        "baseUnit": "nanosecond",
+                        "displayUnit": null,
+                        "decimals": 2,
+                        "suffix": "",
+                        "delimiter": false,
+                        "added": 1746794575088
+                    }
+                ]
+            },
+            "querySettings": {
+                "maxResultRecords": 1000,
+                "defaultScanLimitGbytes": 500,
+                "maxResultMegaBytes": 1,
+                "defaultSamplingRatio": 10,
+                "enableSampling": false
+            },
+            "davis": {
+                "enabled": false,
+                "componentState": {
+                    "selectedAnalyzerName": "dt.statistics.ui.anomaly_detection.StaticThresholdAnomalyDetectionAnalyzer",
+                    "inputData": {
+                        "dt.statistics.ui.anomaly_detection.StaticThresholdAnomalyDetectionAnalyzer": {
+                            "generalParameters": {
+                                "timeframe": {
+                                    "startTime": "2025-05-01T15:04:39.617Z",
+                                    "endTime": "2025-05-08T15:04:39.617Z"
+                                },
+                                "resolveDimensionalQueryData": true,
+                                "logVerbosity": "INFO"
+                            },
+                            "query": "fetch dt.davis.problems\n| filter event.kind == \"DAVIS_PROBLEM\" and matchesPhrase(event.name,\"SLO Burn rate\")\n| summarize count(), by: {timestamp, event.name}",
+                            "threshold": 1,
+                            "alertCondition": "ABOVE",
+                            "alertOnMissingData": false,
+                            "violatingSamples": 3,
+                            "slidingWindow": 5,
+                            "dealertingSamples": 5
+                        }
+                    }
+                },
+                "davisVisualization": {
+                    "isAvailable": true
+                }
+            },
+            "timeframe": {
+                "tileTimeframe": {
+                    "from": "now()-7d",
+                    "to": "now()"
+                },
+                "tileTimeframeEnabled": false
+            }
+        },
+        "51": {
+            "type": "markdown",
+            "content": "---\n---\n**slo level = high**\n--- \nSLO high | SLO user experience performance | SLO user experience success rate |  SLO service success rate |  SLO service method success rate \n--- | --- | --- | ---  | --- \nType | Application performance | Application  error| Service error | Key Request error \nTarget (*) | {{ .target_highslo_userexperiencevitallcp }}% | {{ .target_highslo_userexperiencesuccessrate }}% | {{ .target_highslo_servicesuccessrate }}% | {{ .target_highslo_servicemethodsuccessrate }}%\nWarning | {{ .warning_highslo_userexperiencevitallcp }}% | {{ .warning_highslo_userexperiencesuccessrate }}% | {{ .warning_highslo_servicesuccessrate }}% | {{ .warning_highslo_servicemethodsuccessrate }}%\nSLI | % interval with LCP < 4 sec | % user action without error | % service request without error | % service key request without error\nBurn rate threshold | {{ .burnrate_highslo_userexperiencevitallcp }} | {{ .burnrate_highslo_userexperiencesuccessrate }} | {{ .burnrate_highslo_servicesuccessrate }} | {{ .burnrate_highslo_servicemethodsuccessrate }} \nAlert | {{ .violatingsamples_highslo_userexperiencevitallcp }} intervals / {{ .slingwindow_highslo_userexperiencevitallcp }} | {{ .violatingsamples_highslo_userexperiencesuccessrate }} intervals / {{ .slingwindow_highslo_userexperiencesuccessrate }} | {{ .violatingsamples_highslo_servicesuccessrate }} intervals / {{ .slingwindow_highslo_servicesuccessrate }} | {{ .violatingsamples_highslo_servicemethodsuccessrate }} intervals / {{ .slingwindow_highslo_servicemethodsuccessrate }} \nDealerting | {{ .dealertingsamples_highslo_userexperiencevitallcp }} minutes| {{ .dealertingsamples_highslo_userexperiencesuccessrate }} minutes| {{ .dealertingsamples_highslo_servicesuccessrate }} minutes | {{ .dealertingsamples_highslo_servicemethodsuccessrate }} minutes\n\n\n(*) default slo period = -{{ .slo_period_day }}d"
+        },
+        "53": {
+            "title": "",
+            "type": "data",
+            "query": "//service (mandatory for segment) \nfetch dt.entity.service\n| filter matchesPhrase(tags,\"slo\")\n| fieldsAdd slo_level=if(matchesPhrase(tags,\"slo_level:low\"),\"low\")\n| fieldsAdd slo_level=if(matchesPhrase(tags,\"slo_level:medium\"),\"medium\",else: slo_level)\n| fieldsAdd slo_level=if(matchesPhrase(tags,\"slo_level:high\"),\"high\",else: slo_level)\n| fieldsAdd slo_alert=if(matchesPhrase(tags,\"slo_alert:off\"),\"off\")\n| fieldsAdd slo_alert=if(matchesPhrase(tags,\"slo_alert:on\"),\"on\",else: slo_alert)\n//service method\n| append [\n  fetch dt.entity.service_method\n  | filter matchesPhrase(tags,\"slo\")\n  | fieldsAdd slo_level=if(matchesPhrase(tags,\"slo_level:low\"),\"low\")\n  | fieldsAdd slo_level=if(matchesPhrase(tags,\"slo_level:medium\"),\"medium\",else: slo_level)\n  | fieldsAdd slo_level=if(matchesPhrase(tags,\"slo_level:high\"),\"high\",else: slo_level)\n  | fieldsAdd slo_alert=if(matchesPhrase(tags,\"slo_alert:off\"),\"off\")\n  | fieldsAdd slo_alert=if(matchesPhrase(tags,\"slo_alert:on\"),\"on\",else: slo_alert)\n  ]\n//web application\n| append [\n  fetch dt.entity.application\n  | filter matchesPhrase(tags,\"slo\")\n  | fieldsAdd slo_level=if(matchesPhrase(tags,\"slo_level:low\"),\"low\")\n  | fieldsAdd slo_level=if(matchesPhrase(tags,\"slo_level:medium\"),\"medium\",else: slo_level)\n  | fieldsAdd slo_level=if(matchesPhrase(tags,\"slo_level:high\"),\"high\",else: slo_level)\n  | fieldsAdd slo_alert=if(matchesPhrase(tags,\"slo_alert:off\"),\"off\")\n  | fieldsAdd slo_alert=if(matchesPhrase(tags,\"slo_alert:on\"),\"on\",else: slo_alert)\n  | fieldsAdd slo_alert_perf=if(matchesPhrase(tags,\"slo_alert_perf:off\"),\"off\")\n  | fieldsAdd slo_alert_perf=if(matchesPhrase(tags,\"slo_alert_perf:on\"),\"on\",else: slo_alert_perf)\n  ]\n\n//SLO alerte\n| join [\n  fetch dt.davis.problems\n  | filter event.kind == \"DAVIS_PROBLEM\" and matchesValue(event.name,\"SLO Burn rate*\")\n  | fieldsAdd id=affected_entity_ids[0]\n  | sort timestamp asc\n  | summarize {`alert_burn_rate_close`=countIf(event.status==\"CLOSED\"), `alert_burn_rate_active`=countIf(event.status==\"ACTIVE\"), event.id=takeLast(event.id), display_id=takeLast(display_id), event.name=takeLast(event.name),  event.kind=takeLast(event.kind) }, by:{id, event.status}\n  ], on: { id }, kind:leftOuter, prefix:\"alert.\" \n\n//table\n| fieldsAdd `burn-rate alert`=if(`alert.alert_burn_rate_close` > 0,\"🟡\", else: \"\")\n| fieldsAdd `burn-rate alert`=if(`alert.alert_burn_rate_active` > 0,\"🔴\", else: `burn-rate alert`)\n| fieldsAdd `active/close`=concat(if(isNotNull(alert.alert_burn_rate_active),alert.alert_burn_rate_active,else: \"\"),\"/\",if(isNotNull(alert.alert_burn_rate_close),alert.alert_burn_rate_close,else: \"\"))\n| fieldsAdd `active/close`=if(`active/close`==\"/\",\"\",else: `active/close`)\n| fieldsAdd type=if(entity.type==\"APPLICATION\",\"frontend\")\n| fieldsAdd type=if(entity.type==\"SERVICE\",\"service\",else: type)\n| fieldsAdd type=if(entity.type==\"SERVICE_METHOD\",\"key request\",else: type)\n| fields entity.name, type, slo_level, slo_alert, slo_alert_perf=if(isNotNull(slo_alert_perf),slo_alert_perf,else: \"\"),`burn-rate alert`, `active/close`, `latest problem`=if(isNotNull(alert.display_id),alert.display_id,else: \"\"), event.id=alert.event.id, event.kind=alert.event.kind, id, entity.type\n\n| sort  entity.type asc",
+            "visualization": "table",
+            "visualizationSettings": {
+                "thresholds": [],
+                "chartSettings": {
+                    "gapPolicy": "gap",
+                    "circleChartSettings": {
+                        "groupingThresholdType": "relative",
+                        "groupingThresholdValue": 0,
+                        "valueType": "relative"
+                    },
+                    "categoryOverrides": {},
+                    "curve": "linear",
+                    "pointsDisplay": "auto",
+                    "categoricalBarChartSettings": {
+                        "layout": "horizontal",
+                        "categoryAxisTickLayout": "horizontal",
+                        "scale": "absolute",
+                        "groupMode": "stacked",
+                        "colorPaletteMode": "multi-color",
+                        "valueAxisScale": "linear"
+                    },
+                    "colorPalette": "categorical",
+                    "valueRepresentation": "absolute",
+                    "truncationMode": "middle",
+                    "xAxisScaling": "auto",
+                    "xAxisLabel": "slo.event.start",
+                    "xAxisIsLabelVisible": false,
+                    "hiddenLegendFields": ["dt.davis.affected_users_count", "resolved_problem_duration"],
+                    "leftYAxisSettings": {}
+                },
+                "singleValue": {
+                    "showLabel": true,
+                    "label": "",
+                    "prefixIcon": "AnalyticsIcon",
+                    "isIconVisible": false,
+                    "autoscale": true,
+                    "alignment": "center",
+                    "colorThresholdTarget": "value"
+                },
+                "table": {
+                    "rowDensity": "condensed",
+                    "enableSparklines": false,
+                    "hiddenColumns": [["event.id"], ["event.kind"], ["id"], ["entity.type"]],
+                    "linewrapEnabled": true,
+                    "lineWrapIds": [],
+                    "monospacedFontEnabled": false,
+                    "monospacedFontColumns": [],
+                    "columnWidths": {
+                        "[\"event.name\"]": 255.95001220703125,
+                        "[\"entity.name\"]": 312.78
+                    },
+                    "columnTypeOverrides": [{
+                            "id": 1543108.3000000045,
+                            "fields": ["active/close"],
+                            "value": "log-content"
+                        }
+                    ],
+                    "columnOrder": ["[\"entity.name\"]", "[\"type\"]", "[\"slo_level\"]", "[\"slo_alert\"]", "[\"slo_alert_perf\"]", "[\"burn-rate alert\"]", "[\"active/close\"]", "[\"latest problem\"]", "[\"event.id\"]", "[\"event.kind\"]", "[\"id\"]", "[\"entity.type\"]"],
+                    "sortBy": []
+                },
+                "honeycomb": {
+                    "shape": "hexagon",
+                    "legend": {
+                        "hidden": false,
+                        "position": "auto",
+                        "ratio": "auto"
+                    },
+                    "dataMappings": {},
+                    "displayedFields": [],
+                    "truncationMode": "middle",
+                    "colorMode": "color-palette",
+                    "colorPalette": "categorical"
+                },
+                "histogram": {
+                    "legend": {
+                        "position": "auto"
+                    },
+                    "yAxis": {
+                        "label": "Frequency",
+                        "isLabelVisible": true,
+                        "scale": "linear"
+                    },
+                    "colorPalette": "categorical",
+                    "dataMappings": [],
+                    "variant": "single",
+                    "truncationMode": "middle"
+                },
+                "valueBoundaries": {
+                    "min": "auto",
+                    "max": "auto"
+                },
+                "autoSelectVisualization": false
+            },
+            "querySettings": {
+                "maxResultRecords": 1000,
+                "defaultScanLimitGbytes": 500,
+                "maxResultMegaBytes": 1,
+                "defaultSamplingRatio": 10,
+                "enableSampling": false
+            },
+            "davis": {
+                "enabled": false,
+                "davisVisualization": {
+                    "isAvailable": true
+                }
+            },
+            "timeframe": {
+                "tileTimeframe": {
+                    "from": "now()-7d",
+                    "to": "now()"
+                },
+                "tileTimeframeEnabled": false
+            }
+        },
+        "54": {
+            "title": "SLO burn rate problem (duration)",
+            "type": "data",
+            "query": "fetch dt.davis.problems\n| filter event.kind == \"DAVIS_PROBLEM\" and matchesPhrase(event.name,\"SLO Burn rate\")\n| fieldsAdd id=affected_entity_ids[0]\n| filter isNotNull(id)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service_method\"), entityName(id, type:\"dt.entity.service_method\"))\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service\"), entityName(id, type:\"dt.entity.service\"), else:entity)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.application\"), entityName(id, type:\"dt.entity.application\"), else:entity)\n//| maketimeseries `SLO Burn rate problem`=count(), by:{ entity, event.name, id, display_id, event.id, event.kind }, nonempty:true\n\n",
+            "visualization": "lineChart",
+            "visualizationSettings": {
+                "autoSelectVisualization": false,
+                "thresholds": [{
+                        "id": 1,
+                        "field": "",
+                        "title": "",
+                        "isEnabled": false,
+                        "rules": [{
+                                "id": 0,
+                                "color": {
+                                    "Default": "var(--dt-colors-charts-status-ideal-default, #2f6863)"
+                                },
+                                "comparator": "≥",
+                                "label": "",
+                                "value": 99.8
+                            }, {
+                                "id": 1,
+                                "color": {
+                                    "Default": "var(--dt-colors-charts-status-warning-default, #eca440)"
+                                },
+                                "comparator": "≥",
+                                "label": "",
+                                "value": 99
+                            }, {
+                                "id": 2,
+                                "color": {
+                                    "Default": "var(--dt-colors-charts-status-critical-default, #c4233b)"
+                                },
+                                "comparator": "≥",
+                                "label": "",
+                                "value": 0
+                            }
+                        ]
+                    }
+                ],
+                "chartSettings": {
+                    "gapPolicy": "gap",
+                    "circleChartSettings": {
+                        "groupingThresholdType": "relative",
+                        "groupingThresholdValue": 0,
+                        "valueType": "relative"
+                    },
+                    "categoryOverrides": {},
+                    "curve": "linear",
+                    "pointsDisplay": "auto",
+                    "categoricalBarChartSettings": {
+                        "layout": "horizontal",
+                        "categoryAxisTickLayout": "horizontal",
+                        "scale": "absolute",
+                        "groupMode": "stacked",
+                        "colorPaletteMode": "multi-color",
+                        "valueAxisScale": "linear",
+                        "categoryAxisLabel": "entity,event.name,id,display_id,event.id,event.kind",
+                        "valueAxisLabel": "interval",
+                        "tooltipVariant": "single"
+                    },
+                    "colorPalette": "fireplace-inverted",
+                    "valueRepresentation": "absolute",
+                    "truncationMode": "middle",
+                    "xAxisScaling": "auto",
+                    "xAxisLabel": "timestamp",
+                    "xAxisIsLabelVisible": false,
+                    "hiddenLegendFields": ["id", "event.id", "event.status", "event.category", "dt.davis.mute.status", "event.status_transition", "display_id", "event.kind", "dt.davis.is_duplicate", "maintenance.is_under_maintenance", "dt.davis.is_frequent_event"],
+                    "fieldMapping": {
+                        "timestamp": "timestamp",
+                        "leftAxisValues": ["resolved_problem_duration"]
+                    },
+                    "leftYAxisSettings": {
+                        "isLabelVisible": false,
+                        "label": "problem",
+                        "min": "auto",
+                        "max": "auto",
+                        "scale": "linear"
+                    },
+                    "seriesOverrides": [],
+                    "legend": {
+                        "position": "auto",
+                        "hidden": false
+                    },
+                    "rightYAxisSettings": {
+                        "isLabelVisible": true,
+                        "label": "SLO Burn rate problem",
+                        "scale": "linear"
+                    },
+                    "tooltip": {
+                        "seriesDisplayMode": "multi-line",
+                        "variant": "shared"
+                    }
+                },
+                "singleValue": {
+                    "showLabel": true,
+                    "label": "",
+                    "prefixIcon": "AnalyticsIcon",
+                    "isIconVisible": false,
+                    "autoscale": true,
+                    "alignment": "center",
+                    "colorThresholdTarget": "value"
+                },
+                "table": {
+                    "rowDensity": "condensed",
+                    "enableSparklines": false,
+                    "hiddenColumns": [],
+                    "linewrapEnabled": false,
+                    "lineWrapIds": [],
+                    "monospacedFontEnabled": false,
+                    "monospacedFontColumns": [],
+                    "columnWidths": {},
+                    "columnTypeOverrides": [],
+                    "columnOrder": ["[\"timestamp\"]", "[\"entity\"]", "[\"event.name\"]", "[\"id\"]", "[\"event.id\"]", "[\"event.kind\"]", "[\"display_id\"]", "[\"event.status\"]", "[\"affected_entity_types\"]", "[\"resolved_problem_duration\"]", "[\"event.category\"]", "[\"affected_entity_ids\"]", "[\"dt.davis.mute.status\"]", "[\"event.status_transition\"]", "[\"dt.davis.is_duplicate\"]", "[\"maintenance.is_under_maintenance\"]", "[\"event.start\"]", "[\"dt.davis.is_frequent_event\"]", "[\"labels.alerting_profile\"]", "[\"event.description\"]", "[\"event.end\"]", "[\"entity_tags\"]", "[\"dt.davis.event_ids\"]", "[\"dt.entity.service\"]", "[\"dt.entity.service_method\"]"],
+                    "sortBy": [{
+                            "columnId": "[\"timeframe\",\"end\"]",
+                            "direction": "ascending"
+                        }
+                    ]
+                },
+                "honeycomb": {
+                    "shape": "hexagon",
+                    "legend": {
+                        "hidden": false,
+                        "position": "auto",
+                        "ratio": "auto"
+                    },
+                    "dataMappings": {
+                        "value": "resolved_problem_duration"
+                    },
+                    "displayedFields": ["id", "entity", "event.id", "event.status", "event.category", "dt.davis.mute.status", "event.status_transition", "display_id", "event.name", "event.kind", "event.description"],
+                    "truncationMode": "middle",
+                    "colorMode": "color-palette",
+                    "colorPalette": "blue"
+                },
+                "histogram": {
+                    "legend": {
+                        "position": "auto"
+                    },
+                    "yAxis": {
+                        "label": "Frequency",
+                        "isLabelVisible": true,
+                        "scale": "linear"
+                    },
+                    "colorPalette": "categorical",
+                    "dataMappings": [{
+                            "valueAxis": "interval",
+                            "rangeAxis": ""
+                        }
+                    ],
+                    "variant": "single",
+                    "truncationMode": "middle",
+                    "displayedFields": ["entity", "event.name", "id", "display_id", "event.id", "event.kind"]
+                },
+                "valueBoundaries": {
+                    "min": "auto",
+                    "max": "auto"
+                },
+                "legend": {
+                    "showLegend": false,
+                    "position": "auto",
+                    "ratio": 33
+                },
+                "unitsOverrides": [{
+                        "identifier": "SLO Burn rate problem duration",
+                        "unitCategory": "time",
+                        "baseUnit": "nanosecond",
+                        "displayUnit": null,
+                        "decimals": 1,
+                        "suffix": "",
+                        "delimiter": false,
+                        "added": 1746794539860
+                    }, {
+                        "identifier": "SLI service success rate",
+                        "unitCategory": "percentage",
+                        "baseUnit": "percent",
+                        "displayUnit": null,
+                        "decimals": 1,
+                        "suffix": "",
+                        "delimiter": false,
+                        "added": 1746794566449
+                    }, {
+                        "identifier": "interval",
+                        "unitCategory": "time",
+                        "baseUnit": "nanosecond",
+                        "displayUnit": null,
+                        "decimals": 2,
+                        "suffix": "",
+                        "delimiter": false,
+                        "added": 1746794575088
+                    }
+                ]
+            },
+            "querySettings": {
+                "maxResultRecords": 1000,
+                "defaultScanLimitGbytes": 500,
+                "maxResultMegaBytes": 1,
+                "defaultSamplingRatio": 10,
+                "enableSampling": false
+            },
+            "davis": {
+                "enabled": false,
+                "componentState": {
+                    "selectedAnalyzerName": "dt.statistics.ui.anomaly_detection.StaticThresholdAnomalyDetectionAnalyzer",
+                    "inputData": {
+                        "dt.statistics.ui.anomaly_detection.StaticThresholdAnomalyDetectionAnalyzer": {
+                            "generalParameters": {
+                                "timeframe": {
+                                    "startTime": "2025-05-01T15:04:39.617Z",
+                                    "endTime": "2025-05-08T15:04:39.617Z"
+                                },
+                                "resolveDimensionalQueryData": true,
+                                "logVerbosity": "INFO"
+                            },
+                            "query": "fetch dt.davis.problems\n| filter event.kind == \"DAVIS_PROBLEM\" and matchesPhrase(event.name,\"SLO Burn rate\")\n| summarize count(), by: {timestamp, event.name}",
+                            "threshold": 1,
+                            "alertCondition": "ABOVE",
+                            "alertOnMissingData": false,
+                            "violatingSamples": 3,
+                            "slidingWindow": 5,
+                            "dealertingSamples": 5
+                        }
+                    }
+                },
+                "davisVisualization": {
+                    "isAvailable": true
+                }
+            },
+            "timeframe": {
+                "tileTimeframe": {
+                    "from": "now()-7d",
+                    "to": "now()"
+                },
+                "tileTimeframeEnabled": false
+            },
+            "segments": {
+                "tileSegments": [{
+                        "id": "QUZ63717zQd",
+                        "variables": [{
+                                "name": "tags",
+                                "values": ["slo_level:high"]
+                            }
+                        ]
+                    }
+                ],
+                "tileSegmentsEnabled": false
+            }
+        },
+        "55": {
+            "title": "SLO - user experience vital lcp",
+            "type": "slo",
+            "input": "{{ .slo_highslo_userexperiencevitallcpId }}",
+            "visualizationSettings": {
+                "columns": ["status", "errorBudget", "target", "evaluationPeriod"],
+                "options": {
+                    "showLabels": true,
+                    "colorizeBackground": false
+                }
+            }
+        },
+        "56": {
+            "title": "SLO high - service success rate",
+            "type": "slo",
+            "input": "{{ .slo_highslo_servicesuccessrateId }}",
+            "visualizationSettings": {
+                "columns": ["status", "errorBudget", "target", "evaluationPeriod"],
+                "options": {
+                    "showLabels": true,
+                    "colorizeBackground": false
+                }
+            }
+        },
+        "57": {
+            "type": "markdown",
+            "content": "## SLO FrontEnd"
+        },
+        "58": {
+            "type": "markdown",
+            "content": "## SLO Backend"
+        },
+        "59": {
+            "title": "SLO high - service method success rate",
+            "type": "slo",
+            "input": "{{ .slo_highslo_servicemethodsuccessrateId }}",
+            "visualizationSettings": {
+                "columns": ["status", "errorBudget", "target", "evaluationPeriod"],
+                "options": {
+                    "showLabels": true,
+                    "colorizeBackground": false
+                }
+            }
+        },
+        "60": {
+            "title": "SLO - user experience success rate",
+            "type": "slo",
+            "input": "{{ .slo_highslo_userexperiencesuccessrateId }}",
+            "visualizationSettings": {
+                "columns": ["status", "errorBudget", "target", "evaluationPeriod"],
+                "options": {
+                    "showLabels": true,
+                    "colorizeBackground": false
+                }
+            }
+        },
+        "61": {
+            "type": "markdown",
+            "content": "### all problems"
+        },
+        "62": {
+            "title": "Problems",
+            "type": "data",
+            "query": "fetch dt.davis.problems\n| filter event.kind == \"DAVIS_PROBLEM\"\n| fieldsAdd status=if(event.status ==\"ACTIVE\",\"🔴\", else: \"🟡\")\n| fieldsAdd status=if(isNotNull(status),status, else: \"🟢\" )\n| fields timestamp, status, event.name\n| sort status\n| limit 100",
+            "visualization": "honeycomb",
+            "visualizationSettings": {
+                "thresholds": [],
+                "chartSettings": {
+                    "xAxisScaling": "analyzedTimeframe",
+                    "gapPolicy": "connect",
+                    "circleChartSettings": {
+                        "groupingThresholdType": "relative",
+                        "groupingThresholdValue": 0,
+                        "valueType": "relative"
+                    },
+                    "categoryOverrides": {},
+                    "curve": "linear",
+                    "pointsDisplay": "auto",
+                    "categoricalBarChartSettings": {
+                        "categoryAxisLabel": "timestamp,status,event.name",
+                        "valueAxisLabel": "",
+                        "tooltipVariant": "single",
+                        "categoryAxis": ["timestamp", "status", "event.name"],
+                        "valueAxis": []
+                    },
+                    "hiddenLegendFields": [],
+                    "truncationMode": "middle"
+                },
+                "singleValue": {
+                    "showLabel": true,
+                    "label": "error",
+                    "prefixIcon": "",
+                    "autoscale": true,
+                    "alignment": "center",
+                    "colorThresholdTarget": "value",
+                    "recordField": "error",
+                    "trend": {
+                        "trendType": "auto",
+                        "isVisible": true
+                    },
+                    "sparklineSettings": {}
+                },
+                "table": {
+                    "rowDensity": "condensed",
+                    "enableSparklines": false,
+                    "hiddenColumns": [["id"]],
+                    "linewrapEnabled": false,
+                    "lineWrapIds": [],
+                    "monospacedFontEnabled": false,
+                    "monospacedFontColumns": [],
+                    "columnWidths": {
+                        "[\"entity.name\"]": 269.09375
+                    },
+                    "columnTypeOverrides": []
+                },
+                "honeycomb": {
+                    "shape": "hexagon",
+                    "legend": {
+                        "hidden": true
+                    },
+                    "colorMode": "custom-colors",
+                    "colorPalette": "categorical",
+                    "dataMappings": {
+                        "value": "status"
+                    },
+                    "displayedFields": ["status", "event.name"],
+                    "customColors": [{
+                            "id": 0,
+                            "value": "🟢",
+                            "comparator": "=",
+                            "color": "#00D26A"
+                        }, {
+                            "id": 564849.1999999955,
+                            "value": "🟡",
+                            "comparator": "=",
+                            "color": "#FCD53F"
+                        }, {
+                            "id": 577652.3999999985,
+                            "value": "🔴",
+                            "comparator": "=",
+                            "color": "#F8312F"
+                        }
+                    ]
+                },
+                "histogram": {
+                    "dataMappings": [],
+                    "variant": "single",
+                    "displayedFields": ["status", "event.name"]
+                },
+                "valueBoundaries": {
+                    "min": "auto",
+                    "max": "auto"
+                },
+                "label": {
+                    "showLabel": false
+                },
+                "icon": {
+                    "showIcon": false,
+                    "icon": ""
+                },
+                "autoSelectVisualization": false,
+                "dataMapping": {}
+            },
+            "querySettings": {
+                "maxResultRecords": 1000,
+                "defaultScanLimitGbytes": 500,
+                "maxResultMegaBytes": 1,
+                "defaultSamplingRatio": 10,
+                "enableSampling": false
+            },
+            "davis": {
+                "enabled": false,
+                "davisVisualization": {
+                    "isAvailable": true
+                }
+            },
+            "timeframe": {
+                "tileTimeframe": {
+                    "from": "now()-30m",
+                    "to": "now()"
+                },
+                "tileTimeframeEnabled": false
+            },
+            "segments": {
+                "tileSegments": [],
+                "tileSegmentsEnabled": false
+            }
+        },
+        "63": {
+            "title": "",
+            "type": "data",
+            "query": "fetch dt.davis.problems\n| filter event.kind == \"DAVIS_PROBLEM\"\n| fieldsAdd status=if(event.status ==\"ACTIVE\",\"🔴\", else: \"🟡\")\n| fieldsAdd status=if(isNotNull(status),status, else: \"🟢\" )\n| fields timestamp, status, event.name, event.category, event.description, event.status, display_id, event.id\n| sort status, timestamp desc\n| limit 100\n",
+            "visualization": "table",
+            "visualizationSettings": {
+                "thresholds": [],
+                "chartSettings": {
+                    "xAxisScaling": "analyzedTimeframe",
+                    "gapPolicy": "connect",
+                    "circleChartSettings": {
+                        "groupingThresholdType": "relative",
+                        "groupingThresholdValue": 0,
+                        "valueType": "relative"
+                    },
+                    "categoryOverrides": {},
+                    "curve": "linear",
+                    "pointsDisplay": "auto",
+                    "categoricalBarChartSettings": {
+                        "categoryAxisLabel": "timestamp,status,event.name,event.category,event.description,event.status,display_id,event.id",
+                        "valueAxisLabel": "",
+                        "tooltipVariant": "single"
+                    },
+                    "hiddenLegendFields": [],
+                    "truncationMode": "middle",
+                    "xAxisLabel": "timestamp",
+                    "xAxisIsLabelVisible": false,
+                    "valueRepresentation": "absolute",
+                    "leftYAxisSettings": {}
+                },
+                "singleValue": {
+                    "showLabel": true,
+                    "label": "error",
+                    "prefixIcon": "",
+                    "autoscale": true,
+                    "alignment": "center",
+                    "colorThresholdTarget": "value",
+                    "recordField": "error",
+                    "trend": {
+                        "trendType": "auto",
+                        "isVisible": true
+                    },
+                    "sparklineSettings": {}
+                },
+                "table": {
+                    "rowDensity": "condensed",
+                    "enableSparklines": false,
+                    "hiddenColumns": [["event.id"], ["dt.entity.gcp_zone"], ["dt.entity.aws_availability_zone"], ["dt.entity.azure_region"]],
+                    "linewrapEnabled": false,
+                    "lineWrapIds": [],
+                    "monospacedFontEnabled": false,
+                    "monospacedFontColumns": [],
+                    "columnWidths": {
+                        "[\"entity.name\"]": 144.33334350585938,
+                        "[\"cpu.avg\"]": 112.86666870117188,
+                        "[\"cpu.max\"]": 116.01667022705078,
+                        "[\"mem.avg\"]": 128.5625
+                    },
+                    "columnTypeOverrides": []
+                },
+                "honeycomb": {
+                    "shape": "hexagon",
+                    "legend": {
+                        "hidden": false,
+                        "position": "auto"
+                    },
+                    "colorMode": "color-palette",
+                    "colorPalette": "categorical",
+                    "dataMappings": {
+                        "value": "status"
+                    },
+                    "displayedFields": ["status", "event.name", "event.category", "event.description", "event.status", "display_id", "event.id"]
+                },
+                "histogram": {
+                    "dataMappings": [],
+                    "variant": "single",
+                    "displayedFields": ["status", "event.name", "event.category", "event.description", "event.status", "display_id", "event.id"]
+                },
+                "valueBoundaries": {
+                    "min": "auto",
+                    "max": "auto"
+                },
+                "label": {
+                    "showLabel": false
+                },
+                "icon": {
+                    "showIcon": false,
+                    "icon": ""
+                },
+                "unitsOverrides": [{
+                        "identifier": "cpu.avg",
+                        "unitCategory": "percentage",
+                        "baseUnit": "percent",
+                        "displayUnit": null,
+                        "decimals": 1,
+                        "suffix": "",
+                        "delimiter": false,
+                        "added": 1734264020408
+                    }, {
+                        "identifier": "mem.avg",
+                        "unitCategory": "percentage",
+                        "baseUnit": "percent",
+                        "displayUnit": null,
+                        "decimals": 1,
+                        "suffix": "",
+                        "delimiter": false,
+                        "added": 1734264044799
+                    }
+                ],
+                "dataMapping": {},
+                "autoSelectVisualization": false
+            },
+            "querySettings": {
+                "maxResultRecords": 1000,
+                "defaultScanLimitGbytes": 500,
+                "maxResultMegaBytes": 1,
+                "defaultSamplingRatio": 10,
+                "enableSampling": false
+            },
+            "davis": {
+                "enabled": false,
+                "davisVisualization": {
+                    "isAvailable": true
+                }
+            },
+            "timeframe": {
+                "tileTimeframe": {
+                    "from": "now()-30m",
+                    "to": "now()"
+                },
+                "tileTimeframeEnabled": false
+            },
+            "segments": {
+                "tileSegments": [],
+                "tileSegmentsEnabled": false
+            }
+        },
+        "64": {
+            "title": "",
+            "type": "data",
+            "query": "fetch dt.davis.problems\n| filter event.kind == \"DAVIS_PROBLEM\"\n| summarize count()",
+            "visualization": "singleValue",
+            "visualizationSettings": {
+                "thresholds": [],
+                "chartSettings": {
+                    "xAxisScaling": "analyzedTimeframe",
+                    "gapPolicy": "connect",
+                    "circleChartSettings": {
+                        "groupingThresholdType": "relative",
+                        "groupingThresholdValue": 0,
+                        "valueType": "relative"
+                    },
+                    "categoryOverrides": {},
+                    "curve": "linear",
+                    "pointsDisplay": "auto",
+                    "categoricalBarChartSettings": {
+                        "categoryAxisLabel": "count()",
+                        "valueAxisLabel": "count()",
+                        "tooltipVariant": "single"
+                    },
+                    "hiddenLegendFields": [],
+                    "truncationMode": "middle"
+                },
+                "singleValue": {
+                    "showLabel": false,
+                    "label": "error",
+                    "prefixIcon": "",
+                    "autoscale": true,
+                    "alignment": "center",
+                    "colorThresholdTarget": "value",
+                    "recordField": "count()",
+                    "trend": {
+                        "trendType": "auto",
+                        "isVisible": true
+                    },
+                    "sparklineSettings": {}
+                },
+                "table": {
+                    "rowDensity": "condensed",
+                    "enableSparklines": false,
+                    "hiddenColumns": [["entity.name"], ["dt.entity.service"]],
+                    "linewrapEnabled": false,
+                    "lineWrapIds": [],
+                    "monospacedFontEnabled": false,
+                    "monospacedFontColumns": [],
+                    "columnWidths": {
+                        "[\"entity.name\"]": 269.09375
+                    },
+                    "columnTypeOverrides": []
+                },
+                "honeycomb": {
+                    "shape": "hexagon",
+                    "legend": {
+                        "hidden": true
+                    },
+                    "colorMode": "custom-colors",
+                    "colorPalette": "categorical",
+                    "dataMappings": {},
+                    "displayedFields": [],
+                    "customColors": [{
+                            "id": 0,
+                            "value": "🟢",
+                            "comparator": "=",
+                            "color": "#00D26A"
+                        }, {
+                            "id": 564849.1999999955,
+                            "value": "🟡",
+                            "comparator": "=",
+                            "color": "#FCD53F"
+                        }, {
+                            "id": 577652.3999999985,
+                            "value": "🔴",
+                            "comparator": "=",
+                            "color": "#F8312F"
+                        }
+                    ],
+                    "truncationMode": "middle"
+                },
+                "histogram": {
+                    "dataMappings": [{
+                            "valueAxis": "count()",
+                            "rangeAxis": ""
+                        }
+                    ],
+                    "variant": "single",
+                    "displayedFields": []
+                },
+                "valueBoundaries": {
+                    "min": "auto",
+                    "max": "auto"
+                },
+                "label": {
+                    "showLabel": false,
+                    "label": "count()"
+                },
+                "icon": {
+                    "showIcon": false,
+                    "icon": ""
+                },
+                "autoSelectVisualization": false,
+                "unitsOverrides": [{
+                        "identifier": "count()",
+                        "unitCategory": "unspecified",
+                        "baseUnit": "none",
+                        "displayUnit": null,
+                        "decimals": 0,
+                        "suffix": "",
+                        "delimiter": false,
+                        "added": 1736156638355
+                    }
+                ],
+                "dataMapping": {
+                    "value": "count()"
+                }
+            },
+            "querySettings": {
+                "maxResultRecords": 1000,
+                "defaultScanLimitGbytes": 500,
+                "maxResultMegaBytes": 1,
+                "defaultSamplingRatio": 10,
+                "enableSampling": false
+            },
+            "davis": {
+                "enabled": false,
+                "davisVisualization": {
+                    "isAvailable": true
+                }
+            },
+            "timeframe": {
+                "tileTimeframe": {
+                    "from": "now()-30m",
+                    "to": "now()"
+                },
+                "tileTimeframeEnabled": false
+            },
+            "segments": {
+                "tileSegments": [],
+                "tileSegmentsEnabled": false
+            }
+        },
+        "65": {
+            "type": "markdown",
+            "content": "## SLO Burn rate status "
+        }
+    },
+    "layouts": {
+        "49": {
+            "x": 0,
+            "y": 5,
+            "w": 12,
+            "h": 5
+        },
+        "51": {
+            "x": 13,
+            "y": 10,
+            "w": 10,
+            "h": 9
+        },
+        "53": {
+            "x": 0,
+            "y": 1,
+            "w": 12,
+            "h": 4
+        },
+        "54": {
+            "x": 0,
+            "y": 10,
+            "w": 12,
+            "h": 5
+        },
+        "55": {
+            "x": 13,
+            "y": 1,
+            "w": 5,
+            "h": 4
+        },
+        "56": {
+            "x": 13,
+            "y": 6,
+            "w": 5,
+            "h": 4
+        },
+        "57": {
+            "x": 13,
+            "y": 0,
+            "w": 11,
+            "h": 1
+        },
+        "58": {
+            "x": 13,
+            "y": 5,
+            "w": 11,
+            "h": 1
+        },
+        "59": {
+            "x": 18,
+            "y": 6,
+            "w": 5,
+            "h": 4
+        },
+        "60": {
+            "x": 18,
+            "y": 1,
+            "w": 5,
+            "h": 4
+        },
+        "61": {
+            "x": 0,
+            "y": 15,
+            "w": 12,
+            "h": 1
+        },
+        "62": {
+            "x": 0,
+            "y": 16,
+            "w": 2,
+            "h": 2
+        },
+        "63": {
+            "x": 2,
+            "y": 16,
+            "w": 10,
+            "h": 3
+        },
+        "64": {
+            "x": 0,
+            "y": 18,
+            "w": 2,
+            "h": 1
+        },
+        "65": {
+            "x": 0,
+            "y": 0,
+            "w": 13,
+            "h": 1
+        }
+    },
+    "importedWithCode": false,
+    "settings": {
+        "defaultTimeframe": {
+            "value": {
+                "from": "now()-{{ .slo_period_day }}d",
+                "to": "now()"
+            },
+            "enabled": true
+        },
+        "defaultSegments": {
+            "value": [{
+                    "id": "{{ .segmentId }}",
+                    "variables": [{
+                            "name": "tags",
+                            "values": ["slo_level:high"]
+                        }
+                    ]
+                }
+            ],
+            "enabled": true
+        }
+    }
+}

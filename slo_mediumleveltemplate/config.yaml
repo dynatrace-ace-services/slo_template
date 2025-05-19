@@ -1,0 +1,350 @@
+configs:
+#slo
+- id: slo_mediumslo_userexperiencevitallcp
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_mediumslo_userexperiencevitallcp:
+        name: Target_mediumSlo_UserexperienceVitallcp
+        type: environment
+        default: 95
+      warning_mediumslo_userexperiencevitallcp:
+        name: Warning_mediumSlo_UserexperienceVitallcp
+        type: environment
+        default: 98
+    template: slo_mediumslo_userexperiencevitallcp.json
+    skip:
+      name: UxVitalDisabled
+      type: environment
+      default: false
+  type: slo-v2
+- id: slo_mediumslo_userexperiencesuccessrate
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_mediumslo_userexperiencesuccessrate:
+        name: Target_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 95
+      warning_mediumslo_userexperiencesuccessrate:
+        name: Warning_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 98
+    template: slo_mediumslo_userexperiencesuccessrate.json
+    skip:
+      name: UxDisabled
+      type: environment
+      default: false
+  type: slo-v2
+- id: slo_mediumslo_servicesuccessrate
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_mediumslo_servicesuccessrate:
+        name: Target_mediumslo_servicesuccessrate
+        type: environment
+        default: 95
+      warning_mediumslo_servicesuccessrate:
+        name: Warning_mediumslo_servicesuccessrate
+        type: environment
+        default: 98
+    template: slo_mediumslo_servicesuccessrate.json
+    skip:
+      name: SvcDisabled
+      type: environment
+      default: false
+  type: slo-v2
+- id: slo_mediumslo_servicemethodsuccessrate
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_mediumslo_servicemethodsuccessrate:
+        name: Target_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 95
+      warning_mediumslo_servicemethodsuccessrate:
+        name: Warning_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 98
+    template: slo_mediumslo_servicemethodsuccessrate.json
+    skip:
+      name: SvcMethodDisabled
+      type: environment
+      default: false
+  type: slo-v2
+#davis anomalie detection
+- id: dad_mediumslo_userexperiencevitallcp
+  config:
+    parameters:
+      target_mediumslo_userexperiencevitallcp:
+        name: Target_mediumSlo_UserexperienceVitallcp
+        type: environment
+        default: 95
+      burnrate_mediumslo_userexperiencevitallcp:
+        name: Burnrate_mediumslo_userexperiencevitallcp
+        type: environment
+        default: 10
+      violatingsamples_mediumslo_userexperiencevitallcp:
+        name: Violatingsamples_mediumslo_userexperiencevitallcp
+        type: environment
+        default: 15
+      slingwindow_mediumslo_userexperiencevitallcp:
+        name: Slingwindow_mediumslo_userexperiencevitallcp
+        type: environment
+        default: 30
+      dealertingsamples_mediumslo_userexperiencevitallcp:
+        name: Dealertingsamples_mediumslo_userexperiencevitallcp
+        type: environment
+        default: 5
+    template: dad_mediumslo_userexperiencevitallcp.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+- id: dad_mediumslo_userexperiencesuccessrate
+  config:
+    parameters:
+      target_mediumslo_userexperiencesuccessrate:
+        name: Target_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 95
+      burnrate_mediumslo_userexperiencesuccessrate:
+        name: Burnrate_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 10
+      violatingsamples_mediumslo_userexperiencesuccessrate:
+        name: Violatingsamples_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 15
+      slingwindow_mediumslo_userexperiencesuccessrate:
+        name: Slingwindow_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 30
+      dealertingsamples_mediumslo_userexperiencesuccessrate:
+        name: Dealertingsamples_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 5
+    template: dad_mediumslo_userexperiencesuccessrate.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+- id: dad_mediumslo_servicessuccessrate
+  config:
+    parameters:
+      target_mediumslo_servicesuccessrate:
+        name: Target_mediumslo_servicesuccessrate
+        type: environment
+        default: 95
+      burnrate_mediumslo_servicesuccessrate:
+        name: Burnrate_mediumslo_servicesuccessrate
+        type: environment
+        default: 10
+      violatingsamples_mediumslo_servicesuccessrate:
+        name: Violatingsamples_mediumslo_servicesuccessrate
+        type: environment
+        default: 3
+      slingwindow_mediumslo_servicesuccessrate:
+        name: Slingwindow_mediumslo_servicesuccessrate
+        type: environment
+        default: 5
+      dealertingsamples_mediumslo_servicesuccessrate:
+        name: Dealertingsamples_mediumslo_servicesuccessrate
+        type: environment
+        default: 5
+    template: dad_mediumslo_servicessuccessrate.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+- id: dad_mediumslo_servicesmethodsuccessrate
+  config:
+    parameters:
+      target_mediumslo_servicemethodsuccessrate:
+        name: Target_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 95
+      burnrate_mediumslo_servicemethodsuccessrate:
+        name: Burnrate_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 10
+      violatingsamples_mediumslo_servicemethodsuccessrate:
+        name: Violatingsamples_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 3
+      slingwindow_mediumslo_servicemethodsuccessrate:
+        name: Slingwindow_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+      dealertingsamples_mediumslo_servicemethodsuccessrate:
+        name: Dealertingsamples_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+    template: dad_mediumslo_servicesmethodsuccessrate.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+#segment
+- id: segment_mediumslo
+  config:
+    template: segment_mediumslo.json
+    skip: false
+  type: segment
+#dashboard
+- id: dashboard_mediumslo
+  config:
+    parameters:
+      slo_mediumslo_userexperiencevitallcpId:
+        configId: slo_mediumslo_userexperiencevitallcp
+        configType: slo-v2
+        property: id
+        type: reference
+      slo_mediumslo_servicemethodsuccessrateId:
+        configId: slo_mediumslo_servicemethodsuccessrate
+        configType: slo-v2
+        property: id
+        type: reference
+      slo_mediumslo_servicesuccessrateId:
+        configId: slo_mediumslo_servicesuccessrate
+        configType: slo-v2
+        property: id
+        type: reference
+      slo_mediumslo_userexperiencesuccessrateId:
+        configId: slo_mediumslo_userexperiencesuccessrate
+        configType: slo-v2
+        property: id
+        type: reference
+      segmentId:
+        configId: segment_mediumslo
+        configType: segment
+        property: id
+        type: reference
+
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_mediumslo_userexperiencevitallcp:
+        name: Target_mediumSlo_UserexperienceVitallcp
+        type: environment
+        default: 95
+      warning_mediumslo_userexperiencevitallcp:
+        name: Warning_mediumSlo_UserexperienceVitallcp
+        type: environment
+        default: 98
+      burnrate_mediumslo_userexperiencevitallcp:
+        name: Burnrate_mediumslo_userexperiencevitallcp
+        type: environment
+        default: 10
+      violatingsamples_mediumslo_userexperiencevitallcp:
+        name: Violatingsamples_mediumslo_userexperiencevitallcp
+        type: environment
+        default: 15
+      slingwindow_mediumslo_userexperiencevitallcp:
+        name: Slingwindow_mediumslo_userexperiencevitallcp
+        type: environment
+        default: 30
+      dealertingsamples_mediumslo_userexperiencevitallcp:
+        name: Dealertingsamples_mediumslo_userexperiencevitallcp
+        type: environment
+        default: 5     
+      target_mediumslo_userexperiencesuccessrate:
+        name: Target_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 95
+      warning_mediumslo_userexperiencesuccessrate:
+        name: Warning_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 98
+      burnrate_mediumslo_userexperiencesuccessrate:
+        name: Burnrate_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 10
+      violatingsamples_mediumslo_userexperiencesuccessrate:
+        name: Violatingsamples_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 15
+      slingwindow_mediumslo_userexperiencesuccessrate:
+        name: Slingwindow_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 30
+      dealertingsamples_mediumslo_userexperiencesuccessrate:
+        name: Dealertingsamples_mediumslo_userexperiencesuccessrate
+        type: environment
+        default: 5       
+      target_mediumslo_servicesuccessrate:
+        name: Target_mediumslo_servicesuccessrate
+        type: environment
+        default: 95
+      warning_mediumslo_servicesuccessrate:
+        name: Warning_mediumslo_servicesuccessrate
+        type: environment
+        default: 98
+      burnrate_mediumslo_servicesuccessrate:
+        name: Burnrate_mediumslo_servicesuccessrate
+        type: environment
+        default: 10
+      violatingsamples_mediumslo_servicesuccessrate:
+        name: Violatingsamples_mediumslo_servicesuccessrate
+        type: environment
+        default: 3
+      slingwindow_mediumslo_servicesuccessrate:
+        name: Slingwindow_mediumslo_servicesuccessrate
+        type: environment
+        default: 5
+      dealertingsamples_mediumslo_servicesuccessrate:
+        name: Dealertingsamples_mediumslo_servicesuccessrate
+        type: environment
+        default: 5
+      target_mediumslo_servicemethodsuccessrate:
+        name: Target_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 95
+      warning_mediumslo_servicemethodsuccessrate:
+        name: Warning_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 98
+      burnrate_mediumslo_servicemethodsuccessrate:
+        name: Burnrate_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 10
+      violatingsamples_mediumslo_servicemethodsuccessrate:
+        name: Violatingsamples_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 3
+      slingwindow_mediumslo_servicemethodsuccessrate:
+        name: Slingwindow_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+      dealertingsamples_mediumslo_servicemethodsuccessrate:
+        name: Dealertingsamples_mediumslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+    name: SLO medium - dashboard
+    template: dashboard_mediumslo.json
+    skip: false
+  type:
+    document:
+      kind: dashboard
+      private: true

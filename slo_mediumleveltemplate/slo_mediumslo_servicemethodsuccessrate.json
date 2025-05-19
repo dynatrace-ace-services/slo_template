@@ -1,0 +1,19 @@
+{
+  "criteria": [
+    {
+      "target": "{{ .target_mediumslo_servicemethodsuccessrate }}",
+      "timeframeFrom": "now-{{ .slo_period_day }}d",
+      "timeframeTo": "now",
+      "warning": "{{ .warning_mediumslo_servicemethodsuccessrate }}"
+    }
+  ],
+  "customSli": {
+    "filterSegments": [],
+    "indicator": "fetch dt.entity.service_method\n| filter matchesPhrase(tags,\"slo_level:medium\")\n| fieldsAdd endpoint.name = entity.name\n| join [\n  timeseries { total=sum(dt.service.request.count) \n  ,failures=sum(dt.service.request.failure_count) }\n  , by: { endpoint.name }\n], on:{ endpoint.name }, kind:leftOuter\n| fields timeframe=right.timeframe, interval=right.interval, sli=(((right.total[]-right.failures[])/right.total[])*(102)),endpoint.name, dt.entity.service_method=id\n"
+  },
+  "description": "Measures the proportion of successful key requests over time.",
+  "name": "SLO medium - services method success rate",
+  "tags": [
+    "slo_level:medium"
+  ]
+}

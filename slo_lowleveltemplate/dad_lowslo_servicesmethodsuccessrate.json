@@ -1,0 +1,60 @@
+{
+  "enabled": true,
+  "title": "SLO low - services method success rate",
+  "description": "SLO Burn rate on service method success rate",
+  "source": "SLO",
+  "executionSettings": {},
+  "analyzer": {
+    "name": "dt.statistics.ui.anomaly_detection.StaticThresholdAnomalyDetectionAnalyzer",
+    "input": [
+      {
+        "key": "query",
+        "value": "fetch dt.entity.service_method\n| filter in(tags,\"slo_level:low\") and not(in(tags,\"slo_alert:off\"))\n| fieldsAdd endpoint.name = entity.name\n| join [\n  timeseries { total=sum(dt.service.request.count) \n  , failures=sum(dt.service.request.failure_count) }\n  , by: { endpoint.name }\n], on:{ endpoint.name }, kind:leftOuter\n| fields timeframe=right.timeframe, interval=right.interval, sli=(((right.total[]-right.failures[])/right.total[])*(100)),endpoint.name, dt.entity.service_method=id\n\n// ADD THIS SECTION TO CALCULATE THE BURN RATE for single service-entities\n| fieldsAdd target = {{ .target_lowslo_servicemethodsuccessrate }} //ADD the SLO target\n| fieldsAdd burnRate = ((100 - sli[]) / (100 - target)) // BurnRate = Error Rate / Error Budget\n| fieldsRemove sli"
+      },
+      {
+        "key": "threshold",
+        "value": "{{ .burnrate_lowslo_servicemethodsuccessrate }}"
+      },
+      {
+        "key": "alertCondition",
+        "value": "ABOVE"
+      },
+      {
+        "key": "alertOnMissingData",
+        "value": "false"
+      },
+      {
+        "key": "violatingSamples",
+        "value": "{{ .violatingsamples_lowslo_servicemethodsuccessrate }}"
+      },
+      {
+        "key": "slidingWindow",
+        "value": "{{ .slingwindow_lowslo_servicemethodsuccessrate }}"
+      },
+      {
+        "key": "dealertingSamples",
+        "value": "{{ .dealertingsamples_lowslo_servicemethodsuccessrate }}"
+      }
+    ]
+  },
+  "eventTemplate": {
+    "properties": [
+      {
+        "key": "dt.source_entity",
+        "value": "{dims:dt.entity.service_method}"
+      },
+      {
+        "key": "event.type",
+        "value": "CUSTOM_ALERT"
+      },
+      {
+        "key": "event.description",
+        "value": "SLO burn rate alert, affecting: {dims:dt.entity.service_method}"
+      },
+      {
+        "key": "event.name",
+        "value": "SLO burn rate on service method success rate"
+      }
+    ]
+  }
+}

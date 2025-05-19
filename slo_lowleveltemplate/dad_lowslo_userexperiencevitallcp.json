@@ -1,0 +1,60 @@
+{
+  "enabled": true,
+  "title": "SLO low - user experience vital lcp",
+  "description": "SLO Burn rate on user experience performance",
+  "source": "SLO",
+  "executionSettings": {},
+  "analyzer": {
+    "name": "dt.statistics.ui.anomaly_detection.StaticThresholdAnomalyDetectionAnalyzer",
+    "input": [
+      {
+        "key": "query",
+        "value": "timeseries { total=sum(dt.service.request.count) ,failures=sum(dt.service.request.failure_count) }\n  , by: { dt.entity.service }\n  , filter: {matchesPhrase(entityAttr(dt.entity.service,\"tags\"),\"slo_level:low\") \n  and not(matchesPhrase(entityAttr(dt.entity.service,\"tags\"),\"slo_alert:off\"))}\n| fieldsAdd sli=(((total[]-failures[])/total[])*(100))\n| fieldsAdd entityName(dt.entity.service)\n| fieldsRemove total, failures\n// ADD THIS SECTION TO CALCULATE THE BURN RATE for single service-entities\n| fieldsAdd target = {{ .target_lowslo_userexperiencevitallcp }} //ADD the SLO target\n| fieldsAdd burnRate = ((100 - sli[]) / (100 - target)) // BurnRate = Error Rate / Error Budget\n| fieldsRemove sli"
+      },
+      {
+        "key": "threshold",
+        "value": "{{ .burnrate_lowslo_userexperiencevitallcp }}"
+      },
+      {
+        "key": "alertCondition",
+        "value": "ABOVE"
+      },
+      {
+        "key": "alertOnMissingData",
+        "value": "false"
+      },
+      {
+        "key": "violatingSamples",
+        "value": "{{ .violatingsamples_lowslo_userexperiencevitallcp }}"
+      },
+      {
+        "key": "slidingWindow",
+        "value": "{{ .slingwindow_lowslo_userexperiencevitallcp }}"
+      },
+      {
+        "key": "dealertingSamples",
+        "value": "{{ .dealertingsamples_lowslo_userexperiencevitallcp }}"
+      }
+    ]
+  },
+  "eventTemplate": {
+    "properties": [
+      {
+        "key": "dt.source_entity",
+        "value": "{dims:dt.entity.service}"
+      },
+      {
+        "key": "event.type",
+        "value": "CUSTOM_ALERT"
+      },
+      {
+        "key": "event.description",
+        "value": "low burn rate alert, affecting: {dims:dt.rum.application.entity}"
+      },
+      {
+        "key": "event.name",
+        "value": "SLO Burn rate on user experience performance"
+      }
+    ]
+  }
+}

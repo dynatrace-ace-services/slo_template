@@ -1,0 +1,350 @@
+configs:
+#slo
+- id: slo_highslo_userexperiencevitallcp
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_highslo_userexperiencevitallcp:
+        name: Target_HighSlo_UserexperienceVitallcp
+        type: environment
+        default: 98
+      warning_highslo_userexperiencevitallcp:
+        name: Warning_HighSlo_UserexperienceVitallcp
+        type: environment
+        default: 99
+    template: slo_highslo_userexperiencevitallcp.json
+    skip:
+      name: UxVitalDisabled
+      type: environment
+      default: false
+  type: slo-v2
+- id: slo_highslo_userexperiencesuccessrate
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_highslo_userexperiencesuccessrate:
+        name: Target_highslo_userexperiencesuccessrate
+        type: environment
+        default: 98
+      warning_highslo_userexperiencesuccessrate:
+        name: Warning_highslo_userexperiencesuccessrate
+        type: environment
+        default: 99
+    template: slo_highslo_userexperiencesuccessrate.json
+    skip:
+      name: UxDisabled
+      type: environment
+      default: false
+  type: slo-v2
+- id: slo_highslo_servicesuccessrate
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_highslo_servicesuccessrate:
+        name: Target_highslo_servicesuccessrate
+        type: environment
+        default: 98
+      warning_highslo_servicesuccessrate:
+        name: Warning_highslo_servicesuccessrate
+        type: environment
+        default: 99
+    template: slo_highslo_servicesuccessrate.json
+    skip:
+      name: SvcDisabled
+      type: environment
+      default: false
+  type: slo-v2
+- id: slo_highslo_servicemethodsuccessrate
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_highslo_servicemethodsuccessrate:
+        name: Target_highslo_servicemethodsuccessrate
+        type: environment
+        default: 98
+      warning_highslo_servicemethodsuccessrate:
+        name: Warning_highslo_servicemethodsuccessrate
+        type: environment
+        default: 99
+    template: slo_highslo_servicemethodsuccessrate.json
+    skip:
+      name: SvcMethodDisabled
+      type: environment
+      default: false
+  type: slo-v2
+#davis anomalie detection
+- id: dad_highslo_userexperiencevitallcp
+  config:
+    parameters:
+      target_highslo_userexperiencevitallcp:
+        name: Target_HighSlo_UserexperienceVitallcp
+        type: environment
+        default: 98
+      burnrate_highslo_userexperiencevitallcp:
+        name: Burnrate_highslo_userexperiencevitallcp
+        type: environment
+        default: 4
+      violatingsamples_highslo_userexperiencevitallcp:
+        name: Violatingsamples_highslo_userexperiencevitallcp
+        type: environment
+        default: 10
+      slingwindow_highslo_userexperiencevitallcp:
+        name: Slingwindow_highslo_userexperiencevitallcp
+        type: environment
+        default: 15
+      dealertingsamples_highslo_userexperiencevitallcp:
+        name: Dealertingsamples_highslo_userexperiencevitallcp
+        type: environment
+        default: 5
+    template: dad_highslo_userexperiencevitallcp.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+- id: dad_highslo_userexperiencesuccessrate
+  config:
+    parameters:
+      target_highslo_userexperiencesuccessrate:
+        name: Target_highslo_userexperiencesuccessrate
+        type: environment
+        default: 98
+      burnrate_highslo_userexperiencesuccessrate:
+        name: Burnrate_highslo_userexperiencesuccessrate
+        type: environment
+        default: 4
+      violatingsamples_highslo_userexperiencesuccessrate:
+        name: Violatingsamples_highslo_userexperiencesuccessrate
+        type: environment
+        default: 10
+      slingwindow_highslo_userexperiencesuccessrate:
+        name: Slingwindow_highslo_userexperiencesuccessrate
+        type: environment
+        default: 15
+      dealertingsamples_highslo_userexperiencesuccessrate:
+        name: Dealertingsamples_highslo_userexperiencesuccessrate
+        type: environment
+        default: 5
+    template: dad_highslo_userexperiencesuccessrate.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+- id: dad_highslo_servicessuccessrate
+  config:
+    parameters:
+      target_highslo_servicesuccessrate:
+        name: Target_highslo_servicesuccessrate
+        type: environment
+        default: 98
+      burnrate_highslo_servicesuccessrate:
+        name: Burnrate_highslo_servicesuccessrate
+        type: environment
+        default: 4
+      violatingsamples_highslo_servicesuccessrate:
+        name: Violatingsamples_highslo_servicesuccessrate
+        type: environment
+        default: 2
+      slingwindow_highslo_servicesuccessrate:
+        name: Slingwindow_highslo_servicesuccessrate
+        type: environment
+        default: 5
+      dealertingsamples_highslo_servicesuccessrate:
+        name: Dealertingsamples_highslo_servicesuccessrate
+        type: environment
+        default: 5
+    template: dad_highslo_servicessuccessrate.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+- id: dad_highslo_servicesmethodsuccessrate
+  config:
+    parameters:
+      target_highslo_servicemethodsuccessrate:
+        name: Target_highslo_servicemethodsuccessrate
+        type: environment
+        default: 98
+      burnrate_highslo_servicemethodsuccessrate:
+        name: Burnrate_highslo_servicemethodsuccessrate
+        type: environment
+        default: 4
+      violatingsamples_highslo_servicemethodsuccessrate:
+        name: Violatingsamples_highslo_servicemethodsuccessrate
+        type: environment
+        default: 2
+      slingwindow_highslo_servicemethodsuccessrate:
+        name: Slingwindow_highslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+      dealertingsamples_highslo_servicemethodsuccessrate:
+        name: Dealertingsamples_highslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+    template: dad_highslo_servicesmethodsuccessrate.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+#segment
+- id: segment_highslo
+  config:
+    template: segment_highslo.json
+    skip: false
+  type: segment
+#dashboard
+- id: dashboard_highslo
+  config:
+    parameters:
+      slo_highslo_userexperiencevitallcpId:
+        configId: slo_highslo_userexperiencevitallcp
+        configType: slo-v2
+        property: id
+        type: reference
+      slo_highslo_servicemethodsuccessrateId:
+        configId: slo_highslo_servicemethodsuccessrate
+        configType: slo-v2
+        property: id
+        type: reference
+      slo_highslo_servicesuccessrateId:
+        configId: slo_highslo_servicesuccessrate
+        configType: slo-v2
+        property: id
+        type: reference
+      slo_highslo_userexperiencesuccessrateId:
+        configId: slo_highslo_userexperiencesuccessrate
+        configType: slo-v2
+        property: id
+        type: reference
+      segmentId:
+        configId: segment_highslo
+        configType: segment
+        property: id
+        type: reference
+
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_highslo_userexperiencevitallcp:
+        name: Target_HighSlo_UserexperienceVitallcp
+        type: environment
+        default: 98
+      warning_highslo_userexperiencevitallcp:
+        name: Warning_HighSlo_UserexperienceVitallcp
+        type: environment
+        default: 99
+      burnrate_highslo_userexperiencevitallcp:
+        name: Burnrate_highslo_userexperiencevitallcp
+        type: environment
+        default: 4
+      violatingsamples_highslo_userexperiencevitallcp:
+        name: Violatingsamples_highslo_userexperiencevitallcp
+        type: environment
+        default: 10
+      slingwindow_highslo_userexperiencevitallcp:
+        name: Slingwindow_highslo_userexperiencevitallcp
+        type: environment
+        default: 15
+      dealertingsamples_highslo_userexperiencevitallcp:
+        name: Dealertingsamples_highslo_userexperiencevitallcp
+        type: environment
+        default: 5     
+      target_highslo_userexperiencesuccessrate:
+        name: Target_highslo_userexperiencesuccessrate
+        type: environment
+        default: 98
+      warning_highslo_userexperiencesuccessrate:
+        name: Warning_highslo_userexperiencesuccessrate
+        type: environment
+        default: 99
+      burnrate_highslo_userexperiencesuccessrate:
+        name: Burnrate_highslo_userexperiencesuccessrate
+        type: environment
+        default: 4
+      violatingsamples_highslo_userexperiencesuccessrate:
+        name: Violatingsamples_highslo_userexperiencesuccessrate
+        type: environment
+        default: 10
+      slingwindow_highslo_userexperiencesuccessrate:
+        name: Slingwindow_highslo_userexperiencesuccessrate
+        type: environment
+        default: 15
+      dealertingsamples_highslo_userexperiencesuccessrate:
+        name: Dealertingsamples_highslo_userexperiencesuccessrate
+        type: environment
+        default: 5       
+      target_highslo_servicesuccessrate:
+        name: Target_highslo_servicesuccessrate
+        type: environment
+        default: 98
+      warning_highslo_servicesuccessrate:
+        name: Warning_highslo_servicesuccessrate
+        type: environment
+        default: 99
+      burnrate_highslo_servicesuccessrate:
+        name: Burnrate_highslo_servicesuccessrate
+        type: environment
+        default: 4
+      violatingsamples_highslo_servicesuccessrate:
+        name: Violatingsamples_highslo_servicesuccessrate
+        type: environment
+        default: 2
+      slingwindow_highslo_servicesuccessrate:
+        name: Slingwindow_highslo_servicesuccessrate
+        type: environment
+        default: 5
+      dealertingsamples_highslo_servicesuccessrate:
+        name: Dealertingsamples_highslo_servicesuccessrate
+        type: environment
+        default: 5
+      target_highslo_servicemethodsuccessrate:
+        name: Target_highslo_servicemethodsuccessrate
+        type: environment
+        default: 98
+      warning_highslo_servicemethodsuccessrate:
+        name: Warning_highslo_servicemethodsuccessrate
+        type: environment
+        default: 99
+      burnrate_highslo_servicemethodsuccessrate:
+        name: Burnrate_highslo_servicemethodsuccessrate
+        type: environment
+        default: 4
+      violatingsamples_highslo_servicemethodsuccessrate:
+        name: Violatingsamples_highslo_servicemethodsuccessrate
+        type: environment
+        default: 2
+      slingwindow_highslo_servicemethodsuccessrate:
+        name: Slingwindow_highslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+      dealertingsamples_highslo_servicemethodsuccessrate:
+        name: Dealertingsamples_highslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+    name: SLO high - dashboard
+    template: dashboard_highslo.json
+    skip: false
+  type:
+    document:
+      kind: dashboard
+      private: true

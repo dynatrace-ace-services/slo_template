@@ -1,0 +1,60 @@
+{
+  "enabled": true,
+  "title": "SLO medium - services success rate",
+  "description": "SLO Burn rate on service success rate",
+  "source": "SLO",
+  "executionSettings": {},
+  "analyzer": {
+    "name": "dt.statistics.ui.anomaly_detection.StaticThresholdAnomalyDetectionAnalyzer",
+    "input": [
+      {
+        "key": "query",
+        "value": "timeseries { total=sum(dt.service.request.count) ,failures=sum(dt.service.request.failure_count) }\n  , by: { dt.entity.service }\n  , filter: {matchesPhrase(entityAttr(dt.entity.service,\"tags\"),\"slo_level:medium\") \n  and not(matchesPhrase(entityAttr(dt.entity.service,\"tags\"),\"slo_alert:off\"))}\n| fieldsAdd sli=(((total[]-failures[])/total[])*(100))\n| fieldsAdd entityName(dt.entity.service)\n| fieldsRemove total, failures\n// ADD THIS SECTION TO CALCULATE THE BURN RATE for single service-entities\n| fieldsAdd target = {{ .target_mediumslo_servicesuccessrate }} //ADD the SLO target\n| fieldsAdd burnRate = ((100 - sli[]) / (100 - target)) // BurnRate = Error Rate / Error Budget\n| fieldsRemove sli"
+      },
+      {
+        "key": "threshold",
+        "value": "{{ .burnrate_mediumslo_servicesuccessrate }}"
+      },
+      {
+        "key": "alertCondition",
+        "value": "ABOVE"
+      },
+      {
+        "key": "alertOnMissingData",
+        "value": "false"
+      },
+      {
+        "key": "violatingSamples",
+        "value": "{{ .violatingsamples_mediumslo_servicesuccessrate }}"
+      },
+      {
+        "key": "slidingWindow",
+        "value": "{{ .slingwindow_mediumslo_servicesuccessrate }}"
+      },
+      {
+        "key": "dealertingSamples",
+        "value": "{{ .dealertingsamples_mediumslo_servicesuccessrate }}"
+      }
+    ]
+  },
+  "eventTemplate": {
+    "properties": [
+      {
+        "key": "dt.source_entity",
+        "value": "{dims:dt.entity.service}"
+      },
+      {
+        "key": "event.type",
+        "value": "CUSTOM_ALERT"
+      },
+      {
+        "key": "event.description",
+        "value": "SLO burn rate alert, affecting: {dims:dt.entity.service.name}"
+      },
+      {
+        "key": "event.name",
+        "value": "SLO Burn rate on service success rate"
+      }
+    ]
+  }
+}

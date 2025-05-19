@@ -1,0 +1,350 @@
+configs:
+#slo
+- id: slo_lowslo_userexperiencevitallcp
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_lowslo_userexperiencevitallcp:
+        name: Target_lowSlo_UserexperienceVitallcp
+        type: environment
+        default: 90
+      warning_lowslo_userexperiencevitallcp:
+        name: Warning_lowSlo_UserexperienceVitallcp
+        type: environment
+        default: 95
+    template: slo_lowslo_userexperiencevitallcp.json
+    skip:
+      name: UxVitalDisabled
+      type: environment
+      default: false
+  type: slo-v2
+- id: slo_lowslo_userexperiencesuccessrate
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_lowslo_userexperiencesuccessrate:
+        name: Target_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 90
+      warning_lowslo_userexperiencesuccessrate:
+        name: Warning_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 95
+    template: slo_lowslo_userexperiencesuccessrate.json
+    skip:
+      name: UxDisabled
+      type: environment
+      default: false
+  type: slo-v2
+- id: slo_lowslo_servicesuccessrate
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_lowslo_servicesuccessrate:
+        name: Target_lowslo_servicesuccessrate
+        type: environment
+        default: 90
+      warning_lowslo_servicesuccessrate:
+        name: Warning_lowslo_servicesuccessrate
+        type: environment
+        default: 95
+    template: slo_lowslo_servicesuccessrate.json
+    skip:
+      name: SvcDisabled
+      type: environment
+      default: false
+  type: slo-v2
+- id: slo_lowslo_servicemethodsuccessrate
+  config:
+    parameters:
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_lowslo_servicemethodsuccessrate:
+        name: Target_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 90
+      warning_lowslo_servicemethodsuccessrate:
+        name: Warning_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 95
+    template: slo_lowslo_servicemethodsuccessrate.json
+    skip:
+      name: SvcMethodDisabled
+      type: environment
+      default: false
+  type: slo-v2
+#davis anomalie detection
+- id: dad_lowslo_userexperiencevitallcp
+  config:
+    parameters:
+      target_lowslo_userexperiencevitallcp:
+        name: Target_lowSlo_UserexperienceVitallcp
+        type: environment
+        default: 90
+      burnrate_lowslo_userexperiencevitallcp:
+        name: Burnrate_lowslo_userexperiencevitallcp
+        type: environment
+        default: 20
+      violatingsamples_lowslo_userexperiencevitallcp:
+        name: Violatingsamples_lowslo_userexperiencevitallcp
+        type: environment
+        default: 20
+      slingwindow_lowslo_userexperiencevitallcp:
+        name: Slingwindow_lowslo_userexperiencevitallcp
+        type: environment
+        default: 30
+      dealertingsamples_lowslo_userexperiencevitallcp:
+        name: Dealertingsamples_lowslo_userexperiencevitallcp
+        type: environment
+        default: 5
+    template: dad_lowslo_userexperiencevitallcp.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+- id: dad_lowslo_userexperiencesuccessrate
+  config:
+    parameters:
+      target_lowslo_userexperiencesuccessrate:
+        name: Target_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 90
+      burnrate_lowslo_userexperiencesuccessrate:
+        name: Burnrate_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 20
+      violatingsamples_lowslo_userexperiencesuccessrate:
+        name: Violatingsamples_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 20
+      slingwindow_lowslo_userexperiencesuccessrate:
+        name: Slingwindow_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 30
+      dealertingsamples_lowslo_userexperiencesuccessrate:
+        name: Dealertingsamples_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 5
+    template: dad_lowslo_userexperiencesuccessrate.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+- id: dad_lowslo_servicessuccessrate
+  config:
+    parameters:
+      target_lowslo_servicesuccessrate:
+        name: Target_lowslo_servicesuccessrate
+        type: environment
+        default: 90
+      burnrate_lowslo_servicesuccessrate:
+        name: Burnrate_lowslo_servicesuccessrate
+        type: environment
+        default: 20
+      violatingsamples_lowslo_servicesuccessrate:
+        name: Violatingsamples_lowslo_servicesuccessrate
+        type: environment
+        default: 5
+      slingwindow_lowslo_servicesuccessrate:
+        name: Slingwindow_lowslo_servicesuccessrate
+        type: environment
+        default: 10
+      dealertingsamples_lowslo_servicesuccessrate:
+        name: Dealertingsamples_lowslo_servicesuccessrate
+        type: environment
+        default: 5
+    template: dad_lowslo_servicessuccessrate.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+- id: dad_lowslo_servicesmethodsuccessrate
+  config:
+    parameters:
+      target_lowslo_servicemethodsuccessrate:
+        name: Target_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 90
+      burnrate_lowslo_servicemethodsuccessrate:
+        name: Burnrate_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 20
+      violatingsamples_lowslo_servicemethodsuccessrate:
+        name: Violatingsamples_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+      slingwindow_lowslo_servicemethodsuccessrate:
+        name: Slingwindow_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 10
+      dealertingsamples_lowslo_servicemethodsuccessrate:
+        name: Dealertingsamples_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+    template: dad_lowslo_servicesmethodsuccessrate.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:davis.anomaly-detectors
+      schemaVersion: 1.0.8
+      scope: environment
+#segment
+- id: segment_lowslo
+  config:
+    template: segment_lowslo.json
+    skip: false
+  type: segment
+#dashboard
+- id: dashboard_lowslo
+  config:
+    parameters:
+      slo_lowslo_userexperiencevitallcpId:
+        configId: slo_lowslo_userexperiencevitallcp
+        configType: slo-v2
+        property: id
+        type: reference
+      slo_lowslo_servicemethodsuccessrateId:
+        configId: slo_lowslo_servicemethodsuccessrate
+        configType: slo-v2
+        property: id
+        type: reference
+      slo_lowslo_servicesuccessrateId:
+        configId: slo_lowslo_servicesuccessrate
+        configType: slo-v2
+        property: id
+        type: reference
+      slo_lowslo_userexperiencesuccessrateId:
+        configId: slo_lowslo_userexperiencesuccessrate
+        configType: slo-v2
+        property: id
+        type: reference
+      segmentId:
+        configId: segment_lowslo
+        configType: segment
+        property: id
+        type: reference
+
+      slo_period_day:
+        name: Slo_period_day
+        type: environment
+        default: 7
+      target_lowslo_userexperiencevitallcp:
+        name: Target_lowSlo_UserexperienceVitallcp
+        type: environment
+        default: 90
+      warning_lowslo_userexperiencevitallcp:
+        name: Warning_lowSlo_UserexperienceVitallcp
+        type: environment
+        default: 95
+      burnrate_lowslo_userexperiencevitallcp:
+        name: Burnrate_lowslo_userexperiencevitallcp
+        type: environment
+        default: 20
+      violatingsamples_lowslo_userexperiencevitallcp:
+        name: Violatingsamples_lowslo_userexperiencevitallcp
+        type: environment
+        default: 20
+      slingwindow_lowslo_userexperiencevitallcp:
+        name: Slingwindow_lowslo_userexperiencevitallcp
+        type: environment
+        default: 30
+      dealertingsamples_lowslo_userexperiencevitallcp:
+        name: Dealertingsamples_lowslo_userexperiencevitallcp
+        type: environment
+        default: 5     
+      target_lowslo_userexperiencesuccessrate:
+        name: Target_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 90
+      warning_lowslo_userexperiencesuccessrate:
+        name: Warning_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 95
+      burnrate_lowslo_userexperiencesuccessrate:
+        name: Burnrate_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 20
+      violatingsamples_lowslo_userexperiencesuccessrate:
+        name: Violatingsamples_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 20
+      slingwindow_lowslo_userexperiencesuccessrate:
+        name: Slingwindow_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 30
+      dealertingsamples_lowslo_userexperiencesuccessrate:
+        name: Dealertingsamples_lowslo_userexperiencesuccessrate
+        type: environment
+        default: 5       
+      target_lowslo_servicesuccessrate:
+        name: Target_lowslo_servicesuccessrate
+        type: environment
+        default: 90
+      warning_lowslo_servicesuccessrate:
+        name: Warning_lowslo_servicesuccessrate
+        type: environment
+        default: 95
+      burnrate_lowslo_servicesuccessrate:
+        name: Burnrate_lowslo_servicesuccessrate
+        type: environment
+        default: 20
+      violatingsamples_lowslo_servicesuccessrate:
+        name: Violatingsamples_lowslo_servicesuccessrate
+        type: environment
+        default: 5
+      slingwindow_lowslo_servicesuccessrate:
+        name: Slingwindow_lowslo_servicesuccessrate
+        type: environment
+        default: 10
+      dealertingsamples_lowslo_servicesuccessrate:
+        name: Dealertingsamples_lowslo_servicesuccessrate
+        type: environment
+        default: 5
+      target_lowslo_servicemethodsuccessrate:
+        name: Target_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 90
+      warning_lowslo_servicemethodsuccessrate:
+        name: Warning_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 95
+      burnrate_lowslo_servicemethodsuccessrate:
+        name: Burnrate_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 20
+      violatingsamples_lowslo_servicemethodsuccessrate:
+        name: Violatingsamples_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+      slingwindow_lowslo_servicemethodsuccessrate:
+        name: Slingwindow_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 10
+      dealertingsamples_lowslo_servicemethodsuccessrate:
+        name: Dealertingsamples_lowslo_servicemethodsuccessrate
+        type: environment
+        default: 5
+    name: SLO low - dashboard
+    template: dashboard_lowslo.json
+    skip: false
+  type:
+    document:
+      kind: dashboard
+      private: true

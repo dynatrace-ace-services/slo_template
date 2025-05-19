@@ -1,0 +1,36 @@
+{
+  "allowedOperations": [
+    "READ",
+    "WRITE",
+    "DELETE",
+    "SHARE"
+  ],
+  "includes": [
+    {
+      "applyTo": [],
+      "dataObject": "dt.entity.service",
+      "filter": "{\"type\":\"Group\",\"range\":{\"from\":0,\"to\":13},\"logicalOperator\":\"AND\",\"explicit\":false,\"explicitLogicalOperator\":false,\"children\":[{\"type\":\"Statement\",\"range\":{\"from\":0,\"to\":12},\"key\":{\"type\":\"Key\",\"range\":{\"from\":0,\"to\":4},\"textValue\":\"tags\",\"value\":\"tags\"},\"operator\":{\"type\":\"ComparisonOperator\",\"textValue\":\"=\",\"value\":\"=\",\"range\":{\"from\":5,\"to\":6{{`}}`}},\"value\":{\"type\":\"String\",\"range\":{\"from\":7,\"to\":12},\"textValue\":\"$tags\",\"value\":\"$tags\"{{`}}`}}]}"
+    },
+    {
+      "applyTo": [],
+      "dataObject": "dt.entity.application",
+      "filter": "{\"type\":\"Group\",\"range\":{\"from\":0,\"to\":13},\"logicalOperator\":\"AND\",\"explicit\":false,\"explicitLogicalOperator\":false,\"children\":[{\"type\":\"Statement\",\"range\":{\"from\":0,\"to\":12},\"key\":{\"type\":\"Key\",\"range\":{\"from\":0,\"to\":4},\"textValue\":\"tags\",\"value\":\"tags\"},\"operator\":{\"type\":\"ComparisonOperator\",\"textValue\":\"=\",\"value\":\"=\",\"range\":{\"from\":5,\"to\":6{{`}}`}},\"value\":{\"type\":\"String\",\"range\":{\"from\":7,\"to\":12},\"textValue\":\"$tags\",\"value\":\"$tags\"{{`}}`}}]}"
+    },
+    {
+      "applyTo": [],
+      "dataObject": "dt.entity.service_method",
+      "filter": "{\"type\":\"Group\",\"range\":{\"from\":0,\"to\":13},\"logicalOperator\":\"AND\",\"explicit\":false,\"explicitLogicalOperator\":false,\"children\":[{\"type\":\"Statement\",\"range\":{\"from\":0,\"to\":12},\"key\":{\"type\":\"Key\",\"range\":{\"from\":0,\"to\":4},\"textValue\":\"tags\",\"value\":\"tags\"},\"operator\":{\"type\":\"ComparisonOperator\",\"textValue\":\"=\",\"value\":\"=\",\"range\":{\"from\":5,\"to\":6{{`}}`}},\"value\":{\"type\":\"String\",\"range\":{\"from\":7,\"to\":12},\"textValue\":\"$tags\",\"value\":\"$tags\"{{`}}`}}]}"
+    },
+    {
+      "applyTo": [],
+      "dataObject": "events",
+      "filter": "{\"type\":\"Group\",\"range\":{\"from\":0,\"to\":20},\"logicalOperator\":\"AND\",\"explicit\":false,\"explicitLogicalOperator\":false,\"children\":[{\"type\":\"Statement\",\"range\":{\"from\":0,\"to\":19},\"key\":{\"type\":\"Key\",\"range\":{\"from\":0,\"to\":11},\"textValue\":\"entity_tags\",\"value\":\"entity_tags\"},\"operator\":{\"type\":\"ComparisonOperator\",\"textValue\":\"=\",\"value\":\"=\",\"range\":{\"from\":12,\"to\":13{{`}}`}},\"value\":{\"type\":\"String\",\"range\":{\"from\":14,\"to\":19},\"textValue\":\"$tags\",\"value\":\"$tags\"{{`}}`}}]}"
+    }
+  ],
+  "isPublic": true,
+  "name": "slo high",
+  "variables": {
+    "type": "query",
+    "value": "fetch dt.entity.service, from: -7d\n| filter matchesPhrase(tags,\"slo\") and in(tags,\"slo_level:high\")\n| expand tags\n| filter matchesPhrase(tags,\"slo\") and not(matchesPhrase(tags,\"slo_alert\"))\n| dedup tags\n| fields tags"
+  }
+}
