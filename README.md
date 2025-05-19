@@ -1,25 +1,38 @@
 # SLO template for latest Platform
 
-1) deploy with monaco 3 SLO templates (High, Medium and Low) based on :
+1) Deploy with monaco these 3 SLO templates
 
-        - Application Performance
-        - Application Success Rate
-        - Service Success Rate 
-        - Key Request Success Rate  
+        - High
+        - Medium 
+        - Low
 
-2) Activate SLO template on your application context with these tags :
+2) Focus SLO on your business criteria based on these entities :
+
+        - Application Performance = dt.entity.application (for RUM on GRAIL only)
+        - Application Success Rate = dt.entity.application (for RUM on GRAIL only)
+        - Service Success Rate = dt.entity.service
+        - Key Request Success Rate = dt.entity.service_method
+
+3) Automatic activation on the SLO template by putting these tags on each entity :
    
         - slo:<context_applicatif>
         - slo_level:high|medium|level
         - slo_alert:on|off
         - slo_alert_pert:on|off (for application only)
 
-use the custom tags API on your entities :
+4) Use recommanded values for each template High, Medium and Low, or adapt them for your context :
 
-    - dt.entity.application (for RUM on GRAIL only)
-    - dt.entity.service
-    - dt.entity.service_method
+        - target / warning
+        - burn rate threshold
+        - violatingsamples / slidingwindow / dealertingsamples
+   
+5) Use SLO segment based on your application context to open the SLO template Dashboard and display  :
 
+        - SLO and burn rate for application performance
+        - SLO and burn rate for application successrate
+        - SLO and burn rate for service successrate
+        - SLO and burn rate for key request successrate
+        
 
 ## Permissions OAUTH2
 
