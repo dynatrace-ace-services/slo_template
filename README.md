@@ -6,7 +6,7 @@
         - Medium 
         - Low
 
-2) Focus SLO on your business criteria based on these entities :
+2) Focus SLO on your business criteria based on these entity-types :
 
         - Application Performance = dt.entity.application (for RUM on GRAIL only)
         - Application Success Rate = dt.entity.application (for RUM on GRAIL only)
