@@ -45,7 +45,7 @@ set Dealertingsamples_highslo_userexperiencesuccessrate=%Dealertingsamples_highs
 set Dealertingsamples_highslo_servicesuccessrate=%Dealertingsamples_highslo%
 set Dealertingsamples_highslo_servicemethodsuccessrate=%Dealertingsamples_highslo%
 
-monaco deploy manifest.yaml -e Env1 -p slo_highleveltemplate
+monaco deploy manifest.yaml -e MyEnv -p slo_highleveltemplate
 
 pause
 	
