@@ -87,7 +87,7 @@ use [myaccount](https://myaccount.dynatrace.com/accounts) to generate CLIENT_ID 
 
 - High level
 
-      #slo_period_day default 7
+      #Slo_period_day default 7
       export Slo_period_day=21
       
       #Target
@@ -137,7 +137,7 @@ use [myaccount](https://myaccount.dynatrace.com/accounts) to generate CLIENT_ID 
 
 - Medium level
 
-      #slo_period_day default 7
+      #Slo_period_day default 7
       export Slo_period_day=7
       
       #Target
@@ -186,7 +186,7 @@ use [myaccount](https://myaccount.dynatrace.com/accounts) to generate CLIENT_ID 
 
 - Low level
 
-      #slo_period_day default 7
+      #Slo_period_day default 7
       export Slo_period_day=7
       
       #Target
