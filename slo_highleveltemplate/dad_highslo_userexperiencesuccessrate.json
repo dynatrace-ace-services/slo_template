@@ -9,7 +9,7 @@
     "input": [
       {
         "key": "query",
-        "value": "timeseries { total=sum(dt.service.request.count) ,failures=sum(dt.service.request.failure_count) }\n  , by: { dt.entity.service }\n  , filter: {matchesPhrase(entityAttr(dt.entity.service,\"tags\"),\"slo_level:high\") \n  and not(matchesPhrase(entityAttr(dt.entity.service,\"tags\"),\"slo_alert:off\"))}\n| fieldsAdd sli=(((total[]-failures[])/total[])*(100))\n| fieldsAdd entityName(dt.entity.service)\n| fieldsRemove total, failures\n// ADD THIS SECTION TO CALCULATE THE BURN RATE for single service-entities\n| fieldsAdd target = {{ .target_highslo_userexperiencesuccessrate }} //ADD the SLO target\n| fieldsAdd burnRate = ((100 - sli[]) / (100 - target)) // BurnRate = Error Rate / Error Budget\n| fieldsRemove sli"
+		"value": "fetch dt.entity.application\n| filter matchesPhrase(tags,\"slo\")\n| fieldsAdd dt.rum.application.entity=id\n| join [\n   timeseries { total=sum(dt.frontend.request.count),failures=sum(dt.frontend.error.count) }\n  , by: { dt.rum.application.entity }\n  //, filter: {matchesPhrase(entityAttr(dt.entity.application,\"tags\"),\"slo\")}\n], on:{dt.rum.application.entity}, kind:leftOuter\n| fields timeframe=right.timeframe, interval=right.interval, sli=(((right.total[]-right.failures[])/right.total[])*(100)),\n entityName(dt.rum.application.entity, type: \"dt.entity.application\")\n// ADD THIS SECTION TO CALCULATE THE BURN RATE for single service-entities\n| fieldsAdd target = {{ .target_highslo_userexperiencesuccessrate }}  //ADD the SLO target\n| fieldsAdd burnRate = ((100 - sli[]) / (100 - target)) // BurnRate = Error Rate / Error Budget\n| fieldsRemove sli"
       },
       {
         "key": "threshold",
@@ -41,7 +41,7 @@
     "properties": [
       {
         "key": "dt.source_entity",
-        "value": "{dims:dt.entity.service}"
+        "value": "{dims:dt.rum.application.entity}"
       },
       {
         "key": "event.type",
@@ -49,7 +49,7 @@
       },
       {
         "key": "event.description",
-        "value": "High burn rate alert, affecting: {dims:dt.rum.application.entity}"
+        "value": "high burn rate alert, affecting: {dims:dt.rum.application.entity}"
       },
       {
         "key": "event.name",

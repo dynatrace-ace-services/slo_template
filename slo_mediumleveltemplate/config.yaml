@@ -17,7 +17,7 @@ configs:
         default: 98
     template: slo_mediumslo_userexperiencevitallcp.json
     skip:
-      name: UxVitalDisabled
+      name: RumOnGrailDisabled
       type: environment
       default: false
   type: slo-v2
@@ -38,7 +38,7 @@ configs:
         default: 98
     template: slo_mediumslo_userexperiencesuccessrate.json
     skip:
-      name: UxDisabled
+      name: RumOnGrailDisabled
       type: environment
       default: false
   type: slo-v2
@@ -58,10 +58,7 @@ configs:
         type: environment
         default: 98
     template: slo_mediumslo_servicesuccessrate.json
-    skip:
-      name: SvcDisabled
-      type: environment
-      default: false
+    skip: false
   type: slo-v2
 - id: slo_mediumslo_servicemethodsuccessrate
   config:
@@ -79,10 +76,7 @@ configs:
         type: environment
         default: 98
     template: slo_mediumslo_servicemethodsuccessrate.json
-    skip:
-      name: SvcMethodDisabled
-      type: environment
-      default: false
+    skip: false
   type: slo-v2
 #davis anomalie detection
 - id: dad_mediumslo_userexperiencevitallcp
@@ -109,7 +103,10 @@ configs:
         type: environment
         default: 5
     template: dad_mediumslo_userexperiencevitallcp.json
-    skip: false
+    skip:
+      name: RumOnGrailDisabled
+      type: environment
+      default: false
   type:
     settings:
       schema: builtin:davis.anomaly-detectors
@@ -139,7 +136,10 @@ configs:
         type: environment
         default: 5
     template: dad_mediumslo_userexperiencesuccessrate.json
-    skip: false
+    skip:
+      name: RumOnGrailDisabled
+      type: environment
+      default: false
   type:
     settings:
       schema: builtin:davis.anomaly-detectors

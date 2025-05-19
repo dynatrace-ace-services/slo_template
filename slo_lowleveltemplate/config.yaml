@@ -17,9 +17,9 @@ configs:
         default: 95
     template: slo_lowslo_userexperiencevitallcp.json
     skip:
-      name: UxVitalDisabled
+      name: RumOnGrailDisabled
       type: environment
-      default: false
+      default: true
   type: slo-v2
 - id: slo_lowslo_userexperiencesuccessrate
   config:
@@ -38,7 +38,7 @@ configs:
         default: 95
     template: slo_lowslo_userexperiencesuccessrate.json
     skip:
-      name: UxDisabled
+      name: RumOnGrailDisabled
       type: environment
       default: false
   type: slo-v2
@@ -58,10 +58,7 @@ configs:
         type: environment
         default: 95
     template: slo_lowslo_servicesuccessrate.json
-    skip:
-      name: SvcDisabled
-      type: environment
-      default: false
+    skip: false
   type: slo-v2
 - id: slo_lowslo_servicemethodsuccessrate
   config:
@@ -79,10 +76,7 @@ configs:
         type: environment
         default: 95
     template: slo_lowslo_servicemethodsuccessrate.json
-    skip:
-      name: SvcMethodDisabled
-      type: environment
-      default: false
+    skip: false
   type: slo-v2
 #davis anomalie detection
 - id: dad_lowslo_userexperiencevitallcp
@@ -109,7 +103,10 @@ configs:
         type: environment
         default: 5
     template: dad_lowslo_userexperiencevitallcp.json
-    skip: false
+    skip:
+      name: RumOnGrailDisabled
+      type: environment
+      default: false
   type:
     settings:
       schema: builtin:davis.anomaly-detectors
@@ -139,7 +136,10 @@ configs:
         type: environment
         default: 5
     template: dad_lowslo_userexperiencesuccessrate.json
-    skip: false
+    skip:
+      name: RumOnGrailDisabled
+      type: environment
+      default: false
   type:
     settings:
       schema: builtin:davis.anomaly-detectors
@@ -240,7 +240,6 @@ configs:
         configType: segment
         property: id
         type: reference
-
       slo_period_day:
         name: Slo_period_day
         type: environment
@@ -347,4 +346,4 @@ configs:
   type:
     document:
       kind: dashboard
-      private: true
+      private: false

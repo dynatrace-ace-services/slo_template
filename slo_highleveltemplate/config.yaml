@@ -8,16 +8,16 @@ configs:
         type: environment
         default: 7
       target_highslo_userexperiencevitallcp:
-        name: Target_HighSlo_UserexperienceVitallcp
+        name: Target_highSlo_UserexperienceVitallcp
         type: environment
         default: 98
       warning_highslo_userexperiencevitallcp:
-        name: Warning_HighSlo_UserexperienceVitallcp
+        name: Warning_highSlo_UserexperienceVitallcp
         type: environment
         default: 99
     template: slo_highslo_userexperiencevitallcp.json
     skip:
-      name: UxVitalDisabled
+      name: RumOnGrailDisabled
       type: environment
       default: false
   type: slo-v2
@@ -38,7 +38,7 @@ configs:
         default: 99
     template: slo_highslo_userexperiencesuccessrate.json
     skip:
-      name: UxDisabled
+      name: RumOnGrailDisabled
       type: environment
       default: false
   type: slo-v2
@@ -58,10 +58,7 @@ configs:
         type: environment
         default: 99
     template: slo_highslo_servicesuccessrate.json
-    skip:
-      name: SvcDisabled
-      type: environment
-      default: false
+    skip: false
   type: slo-v2
 - id: slo_highslo_servicemethodsuccessrate
   config:
@@ -79,17 +76,14 @@ configs:
         type: environment
         default: 99
     template: slo_highslo_servicemethodsuccessrate.json
-    skip:
-      name: SvcMethodDisabled
-      type: environment
-      default: false
+    skip: false
   type: slo-v2
 #davis anomalie detection
 - id: dad_highslo_userexperiencevitallcp
   config:
     parameters:
       target_highslo_userexperiencevitallcp:
-        name: Target_HighSlo_UserexperienceVitallcp
+        name: Target_highSlo_UserexperienceVitallcp
         type: environment
         default: 98
       burnrate_highslo_userexperiencevitallcp:
@@ -109,7 +103,10 @@ configs:
         type: environment
         default: 5
     template: dad_highslo_userexperiencevitallcp.json
-    skip: false
+    skip:
+      name: RumOnGrailDisabled
+      type: environment
+      default: false
   type:
     settings:
       schema: builtin:davis.anomaly-detectors
@@ -139,7 +136,10 @@ configs:
         type: environment
         default: 5
     template: dad_highslo_userexperiencesuccessrate.json
-    skip: false
+    skip:
+      name: RumOnGrailDisabled
+      type: environment
+      default: false
   type:
     settings:
       schema: builtin:davis.anomaly-detectors
@@ -240,17 +240,16 @@ configs:
         configType: segment
         property: id
         type: reference
-
       slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
       target_highslo_userexperiencevitallcp:
-        name: Target_HighSlo_UserexperienceVitallcp
+        name: Target_highSlo_UserexperienceVitallcp
         type: environment
         default: 98
       warning_highslo_userexperiencevitallcp:
-        name: Warning_HighSlo_UserexperienceVitallcp
+        name: Warning_highSlo_UserexperienceVitallcp
         type: environment
         default: 99
       burnrate_highslo_userexperiencevitallcp:
@@ -347,4 +346,4 @@ configs:
   type:
     document:
       kind: dashboard
-      private: true
+      private: false
