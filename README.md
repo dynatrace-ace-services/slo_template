@@ -15,7 +15,7 @@
 
 3) Automatic activation SLO template by putting these tags on each entity :
    
-        - slo:<context_applicatif>
+        - slo:<application_context>
         - slo_level:high|medium|level
         - slo_alert:on|off
         - slo_alert_pert:on|off (for application only)
