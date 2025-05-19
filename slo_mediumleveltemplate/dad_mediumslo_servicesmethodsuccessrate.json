@@ -29,7 +29,7 @@
       },
       {
         "key": "slidingWindow",
-        "value": "{{ .slingwindow_mediumslo_servicemethodsuccessrate }}"
+        "value": "{{ .Slidingwindow_mediumslo_servicemethodsuccessrate }}"
       },
       {
         "key": "dealertingSamples",

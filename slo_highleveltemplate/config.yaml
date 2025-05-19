@@ -94,8 +94,8 @@ configs:
         name: Violatingsamples_highslo_userexperiencevitallcp
         type: environment
         default: 10
-      slingwindow_highslo_userexperiencevitallcp:
-        name: Slingwindow_highslo_userexperiencevitallcp
+      Slidingwindow_highslo_userexperiencevitallcp:
+        name: Slidingwindow_highslo_userexperiencevitallcp
         type: environment
         default: 15
       dealertingsamples_highslo_userexperiencevitallcp:
@@ -127,8 +127,8 @@ configs:
         name: Violatingsamples_highslo_userexperiencesuccessrate
         type: environment
         default: 10
-      slingwindow_highslo_userexperiencesuccessrate:
-        name: Slingwindow_highslo_userexperiencesuccessrate
+      Slidingwindow_highslo_userexperiencesuccessrate:
+        name: Slidingwindow_highslo_userexperiencesuccessrate
         type: environment
         default: 15
       dealertingsamples_highslo_userexperiencesuccessrate:
@@ -160,8 +160,8 @@ configs:
         name: Violatingsamples_highslo_servicesuccessrate
         type: environment
         default: 2
-      slingwindow_highslo_servicesuccessrate:
-        name: Slingwindow_highslo_servicesuccessrate
+      Slidingwindow_highslo_servicesuccessrate:
+        name: Slidingwindow_highslo_servicesuccessrate
         type: environment
         default: 5
       dealertingsamples_highslo_servicesuccessrate:
@@ -190,8 +190,8 @@ configs:
         name: Violatingsamples_highslo_servicemethodsuccessrate
         type: environment
         default: 2
-      slingwindow_highslo_servicemethodsuccessrate:
-        name: Slingwindow_highslo_servicemethodsuccessrate
+      Slidingwindow_highslo_servicemethodsuccessrate:
+        name: Slidingwindow_highslo_servicemethodsuccessrate
         type: environment
         default: 5
       dealertingsamples_highslo_servicemethodsuccessrate:
@@ -260,8 +260,8 @@ configs:
         name: Violatingsamples_highslo_userexperiencevitallcp
         type: environment
         default: 10
-      slingwindow_highslo_userexperiencevitallcp:
-        name: Slingwindow_highslo_userexperiencevitallcp
+      Slidingwindow_highslo_userexperiencevitallcp:
+        name: Slidingwindow_highslo_userexperiencevitallcp
         type: environment
         default: 15
       dealertingsamples_highslo_userexperiencevitallcp:
@@ -284,8 +284,8 @@ configs:
         name: Violatingsamples_highslo_userexperiencesuccessrate
         type: environment
         default: 10
-      slingwindow_highslo_userexperiencesuccessrate:
-        name: Slingwindow_highslo_userexperiencesuccessrate
+      Slidingwindow_highslo_userexperiencesuccessrate:
+        name: Slidingwindow_highslo_userexperiencesuccessrate
         type: environment
         default: 15
       dealertingsamples_highslo_userexperiencesuccessrate:
@@ -308,8 +308,8 @@ configs:
         name: Violatingsamples_highslo_servicesuccessrate
         type: environment
         default: 2
-      slingwindow_highslo_servicesuccessrate:
-        name: Slingwindow_highslo_servicesuccessrate
+      Slidingwindow_highslo_servicesuccessrate:
+        name: Slidingwindow_highslo_servicesuccessrate
         type: environment
         default: 5
       dealertingsamples_highslo_servicesuccessrate:
@@ -332,8 +332,8 @@ configs:
         name: Violatingsamples_highslo_servicemethodsuccessrate
         type: environment
         default: 2
-      slingwindow_highslo_servicemethodsuccessrate:
-        name: Slingwindow_highslo_servicemethodsuccessrate
+      Slidingwindow_highslo_servicemethodsuccessrate:
+        name: Slidingwindow_highslo_servicemethodsuccessrate
         type: environment
         default: 5
       dealertingsamples_highslo_servicemethodsuccessrate:

@@ -94,8 +94,8 @@ configs:
         name: Violatingsamples_mediumslo_userexperiencevitallcp
         type: environment
         default: 15
-      slingwindow_mediumslo_userexperiencevitallcp:
-        name: Slingwindow_mediumslo_userexperiencevitallcp
+      Slidingwindow_mediumslo_userexperiencevitallcp:
+        name: Slidingwindow_mediumslo_userexperiencevitallcp
         type: environment
         default: 30
       dealertingsamples_mediumslo_userexperiencevitallcp:
@@ -127,8 +127,8 @@ configs:
         name: Violatingsamples_mediumslo_userexperiencesuccessrate
         type: environment
         default: 15
-      slingwindow_mediumslo_userexperiencesuccessrate:
-        name: Slingwindow_mediumslo_userexperiencesuccessrate
+      Slidingwindow_mediumslo_userexperiencesuccessrate:
+        name: Slidingwindow_mediumslo_userexperiencesuccessrate
         type: environment
         default: 30
       dealertingsamples_mediumslo_userexperiencesuccessrate:
@@ -160,8 +160,8 @@ configs:
         name: Violatingsamples_mediumslo_servicesuccessrate
         type: environment
         default: 3
-      slingwindow_mediumslo_servicesuccessrate:
-        name: Slingwindow_mediumslo_servicesuccessrate
+      Slidingwindow_mediumslo_servicesuccessrate:
+        name: Slidingwindow_mediumslo_servicesuccessrate
         type: environment
         default: 5
       dealertingsamples_mediumslo_servicesuccessrate:
@@ -190,8 +190,8 @@ configs:
         name: Violatingsamples_mediumslo_servicemethodsuccessrate
         type: environment
         default: 3
-      slingwindow_mediumslo_servicemethodsuccessrate:
-        name: Slingwindow_mediumslo_servicemethodsuccessrate
+      Slidingwindow_mediumslo_servicemethodsuccessrate:
+        name: Slidingwindow_mediumslo_servicemethodsuccessrate
         type: environment
         default: 5
       dealertingsamples_mediumslo_servicemethodsuccessrate:
@@ -261,8 +261,8 @@ configs:
         name: Violatingsamples_mediumslo_userexperiencevitallcp
         type: environment
         default: 15
-      slingwindow_mediumslo_userexperiencevitallcp:
-        name: Slingwindow_mediumslo_userexperiencevitallcp
+      Slidingwindow_mediumslo_userexperiencevitallcp:
+        name: Slidingwindow_mediumslo_userexperiencevitallcp
         type: environment
         default: 30
       dealertingsamples_mediumslo_userexperiencevitallcp:
@@ -285,8 +285,8 @@ configs:
         name: Violatingsamples_mediumslo_userexperiencesuccessrate
         type: environment
         default: 15
-      slingwindow_mediumslo_userexperiencesuccessrate:
-        name: Slingwindow_mediumslo_userexperiencesuccessrate
+      Slidingwindow_mediumslo_userexperiencesuccessrate:
+        name: Slidingwindow_mediumslo_userexperiencesuccessrate
         type: environment
         default: 30
       dealertingsamples_mediumslo_userexperiencesuccessrate:
@@ -309,8 +309,8 @@ configs:
         name: Violatingsamples_mediumslo_servicesuccessrate
         type: environment
         default: 3
-      slingwindow_mediumslo_servicesuccessrate:
-        name: Slingwindow_mediumslo_servicesuccessrate
+      Slidingwindow_mediumslo_servicesuccessrate:
+        name: Slidingwindow_mediumslo_servicesuccessrate
         type: environment
         default: 5
       dealertingsamples_mediumslo_servicesuccessrate:
@@ -333,8 +333,8 @@ configs:
         name: Violatingsamples_mediumslo_servicemethodsuccessrate
         type: environment
         default: 3
-      slingwindow_mediumslo_servicemethodsuccessrate:
-        name: Slingwindow_mediumslo_servicemethodsuccessrate
+      Slidingwindow_mediumslo_servicemethodsuccessrate:
+        name: Slidingwindow_mediumslo_servicemethodsuccessrate
         type: environment
         default: 5
       dealertingsamples_mediumslo_servicemethodsuccessrate:

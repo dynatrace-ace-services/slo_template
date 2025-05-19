@@ -29,7 +29,7 @@
       },
       {
         "key": "slidingWindow",
-        "value": "{{ .slingwindow_highslo_userexperiencevitallcp }}"
+        "value": "{{ .Slidingwindow_highslo_userexperiencevitallcp }}"
       },
       {
         "key": "dealertingSamples",
