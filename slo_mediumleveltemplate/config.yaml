@@ -347,4 +347,4 @@ configs:
   type:
     document:
       kind: dashboard
-      private: true
+      private: false
