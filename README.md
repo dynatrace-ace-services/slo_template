@@ -91,7 +91,7 @@ Optional :
 - High level
 
       #Slo_period_day default 7
-      export Slo_period_day=21
+      export Slo_period_day=7
       
       #Target
       export Target_highslo=98
