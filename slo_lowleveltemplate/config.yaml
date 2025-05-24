@@ -3,7 +3,7 @@ configs:
 - id: slo_lowslo_userexperiencevitallcp
   config:
     parameters:
-      slo_period_day:
+      Slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -24,7 +24,7 @@ configs:
 - id: slo_lowslo_userexperiencesuccessrate
   config:
     parameters:
-      slo_period_day:
+      Slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -45,7 +45,7 @@ configs:
 - id: slo_lowslo_servicesuccessrate
   config:
     parameters:
-      slo_period_day:
+      Slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -63,7 +63,7 @@ configs:
 - id: slo_lowslo_servicemethodsuccessrate
   config:
     parameters:
-      slo_period_day:
+      Slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -240,7 +240,7 @@ configs:
         configType: segment
         property: id
         type: reference
-      slo_period_day:
+      Slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
