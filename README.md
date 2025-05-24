@@ -90,8 +90,8 @@ Optional :
 
 - High level
 
-      #slo_period_day default 7
-      export slo_period_day=7
+      #Slo_period_day default 7
+      export Slo_period_day=7
       
       #Target
       export Target_highslo=98
@@ -140,8 +140,8 @@ Optional :
 
 - Medium level
 
-      #slo_period_day default 7
-      export slo_period_day=7
+      #Slo_period_day default 7
+      export Slo_period_day=7
       
       #Target
       export Target_mediumslo=95
@@ -189,8 +189,8 @@ Optional :
 
 - Low level
 
-      #slo_period_day default 7
-      export slo_period_day=7
+      #Slo_period_day default 7
+      export Slo_period_day=7
       
       #Target
       export Target_lowslo=90
