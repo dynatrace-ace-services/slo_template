@@ -1,9 +1,6 @@
 {
   "allowedOperations": [
-    "READ",
-    "WRITE",
-    "DELETE",
-    "SHARE"
+    "READ"
   ],
   "includes": [
     {
@@ -31,6 +28,6 @@
   "name": "slo low",
   "variables": {
     "type": "query",
-    "value": "fetch dt.entity.service, from: -7d\n| filter matchesPhrase(tags,\"slo\") and in(tags,\"slo_level:low\")\n| expand tags\n| filter matchesPhrase(tags,\"slo\") and not(matchesPhrase(tags,\"slo_alert\"))\n| dedup tags\n| fields tags"
+    "value": "fetch dt.entity.service, from: -7d\n| filter matchesPhrase(tags,\"slo\") and in(tags,\"slo_level:low\") and not(in(tags,{\"slo_level:high\",\"slo_level:medium\"}))\n| expand tags\n| filter matchesPhrase(tags,\"slo\") and not(matchesPhrase(tags,\"slo_alert\"))\n| dedup tags\n| fields tags"
   }
 }

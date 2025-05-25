@@ -9,7 +9,7 @@
   ],
   "customSli": {
     "filterSegments": [],
-    "indicator": "fetch dt.entity.application\n| filter matchesPhrase(tags,\"slo\")\n| fieldsAdd dt.rum.application.entity=id\n| join [\n   timeseries { total=sum(dt.frontend.request.count),failures=sum(dt.frontend.error.count) }\n  , by: { dt.rum.application.entity }\n  //, filter: {matchesPhrase(entityAttr(dt.entity.application,\"tags\"),\"slo\")}\n], on:{dt.rum.application.entity}, kind:leftOuter\n| fields timeframe=right.timeframe, interval=right.interval, sli=(((right.total[]-right.failures[])/right.total[])*(100)),\n entityName(dt.rum.application.entity, type: \"dt.entity.application\")\n"
+    "indicator": "fetch dt.entity.application\n| filter matchesPhrase(tags,\"slo_level:low\")\n| fieldsAdd dt.rum.application.entity=id\n| join [\n   timeseries { total=sum(dt.frontend.request.count),failures=sum(dt.frontend.error.count) }\n  , by: { dt.rum.application.entity }\n  //, filter: {matchesPhrase(entityAttr(dt.entity.application,\"tags\"),\"slo\")}\n], on:{dt.rum.application.entity}, kind:leftOuter\n| fields timeframe=right.timeframe, interval=right.interval, sli=(((right.total[]-right.failures[])/right.total[])*(100)),\n entityName(dt.rum.application.entity, type: \"dt.entity.application\")\n"
   },
   "description": "Measures the proportion of successful user action  over time.",
   "name": "SLO low - user experience success rate",

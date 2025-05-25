@@ -3,7 +3,7 @@ configs:
 - id: slo_lowslo_userexperiencevitallcp
   config:
     parameters:
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -16,15 +16,12 @@ configs:
         type: environment
         default: 95
     template: slo_lowslo_userexperiencevitallcp.json
-    skip:
-      name: RumOnGrailDisabled
-      type: environment
-      default: true
+    skip: false
   type: slo-v2
 - id: slo_lowslo_userexperiencesuccessrate
   config:
     parameters:
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -37,15 +34,12 @@ configs:
         type: environment
         default: 95
     template: slo_lowslo_userexperiencesuccessrate.json
-    skip:
-      name: RumOnGrailDisabled
-      type: environment
-      default: false
+    skip: false
   type: slo-v2
 - id: slo_lowslo_servicesuccessrate
   config:
     parameters:
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -63,7 +57,7 @@ configs:
 - id: slo_lowslo_servicemethodsuccessrate
   config:
     parameters:
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -240,7 +234,7 @@ configs:
         configType: segment
         property: id
         type: reference
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -340,7 +334,7 @@ configs:
         name: Dealertingsamples_lowslo_servicemethodsuccessrate
         type: environment
         default: 5
-    name: SLO low - dashboard
+    name: SLO Burn Rate - level:low
     template: dashboard_lowslo.json
     skip: false
   type:

@@ -3,7 +3,7 @@ configs:
 - id: slo_mediumslo_userexperiencevitallcp
   config:
     parameters:
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -16,15 +16,12 @@ configs:
         type: environment
         default: 98
     template: slo_mediumslo_userexperiencevitallcp.json
-    skip:
-      name: RumOnGrailDisabled
-      type: environment
-      default: false
+    skip: false
   type: slo-v2
 - id: slo_mediumslo_userexperiencesuccessrate
   config:
     parameters:
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -37,15 +34,12 @@ configs:
         type: environment
         default: 98
     template: slo_mediumslo_userexperiencesuccessrate.json
-    skip:
-      name: RumOnGrailDisabled
-      type: environment
-      default: false
+    skip: false
   type: slo-v2
 - id: slo_mediumslo_servicesuccessrate
   config:
     parameters:
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -63,7 +57,7 @@ configs:
 - id: slo_mediumslo_servicemethodsuccessrate
   config:
     parameters:
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -240,8 +234,7 @@ configs:
         configType: segment
         property: id
         type: reference
-
-      Slo_period_day:
+      slo_period_day:
         name: Slo_period_day
         type: environment
         default: 7
@@ -341,10 +334,10 @@ configs:
         name: Dealertingsamples_mediumslo_servicemethodsuccessrate
         type: environment
         default: 5
-    name: SLO medium - dashboard
+    name: BSLO Burn Rate - level:medium
     template: dashboard_mediumslo.json
     skip: false
   type:
     document:
       kind: dashboard
-      private: true
+      private: false
