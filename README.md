@@ -31,7 +31,7 @@
         - SLO value and Burn-rate alert for application performance
         - SLO value and Burn-rate alert for application successrate
         - SLO value and Burn-rate alert for service successrate
-        - SLO value and Burn-rate alertfor key request successrate
+        - SLO value and Burn-rate alert for key request (service method) successrate
         
 
 ## Permissions Client OAUTH2 for MONACO
