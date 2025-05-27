@@ -49,11 +49,11 @@
       },
       {
         "key": "event.description",
-        "value": "SLO burn rate alert, affecting: {dims:dt.entity.service_method}"
+        "value": "SLO Burn rate alert, affecting: {dims:dt.entity.service_method}"
       },
       {
         "key": "event.name",
-        "value": "SLO burn rate on service method success rate"
+        "value": "SLO Burn rate on service method success rate"
       }
     ]
   }

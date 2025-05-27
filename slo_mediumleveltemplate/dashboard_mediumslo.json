@@ -3,9 +3,9 @@
     "variables": [],
     "tiles": {
         "10": {
-            "title": "SLO burn rate problem (count)",
+            "title": "SLO Burn rate problem (count)",
             "type": "data",
-            "query": "fetch dt.davis.problems\n| fieldsAdd segment=record(segment=$dt_filter_segments, segmentID=\"{{ .segmentId }}\")\n| parse segment[segment], \"\"\"LD '\\\"id\\\":\\\"' WORD:segment_id \"\"\"\n| filter segment_id==segment[segmentID]\n\n| filter event.kind == \"DAVIS_PROBLEM\" and matchesPhrase(event.name,\"SLO Burn rate\") and in(entity_tags,\"slo_level:medium\")\n| fieldsAdd id=affected_entity_ids[0]\n| filter isNotNull(id)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service_method\"), entityName(id, type:\"dt.entity.service_method\"))\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service\"), entityName(id, type:\"dt.entity.service\"), else:entity)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.application\"), entityName(id, type:\"dt.entity.application\"), else:entity)\n| maketimeseries `SLO Burn rate problem`=count(), by:{ event.name }, nonempty:true\n\n",
+            "query": "fetch dt.davis.problems\n| fieldsAdd segment=record(segment=$dt_filter_segments, segmentID=\"{{ .segmentId }}\")\n| parse segment[segment], \"\"\"LD '\\\"id\\\":\\\"' WORD:segment_id \"\"\"\n| filter segment_id==segment[segmentID]\n\n| filter event.kind == \"DAVIS_PROBLEM\" and matchesPhrase(event.name,\"SLO Burn rate\") and in(entity_tags,\"slo_level:medium\")\n| fieldsAdd id=affected_entity_ids[0]\n| filter isNotNull(id)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service_method\"), entityName(id, type:\"dt.entity.service_method\"))\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service\"), entityName(id, type:\"dt.entity.service\"), else:entity)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.application\"), entityName(id, type:\"dt.entity.application\"), else:entity)\n| maketimeseries `SLO Burn rate problem`=count(), by:{ replaceString(event.name,"SLO burn","SLO Burn") }, nonempty:true\n\n",
             "visualization": "barChart",
             "visualizationSettings": {
                 "thresholds": [{
@@ -1058,7 +1058,7 @@
             }
         },
         "18": {
-            "title": "SLO burn rate problem (duration)",
+            "title": "SLO Burn rate problem (duration)",
             "type": "data",
             "query": "fetch dt.davis.problems\n| fieldsAdd segment=record(segment=$dt_filter_segments, segmentID=\"{{ .segmentId }}\")\n| parse segment[segment], \"\"\"LD '\\\"id\\\":\\\"' WORD:segment_id \"\"\"\n| filter segment_id==segment[segmentID]\n\n| filter event.kind == \"DAVIS_PROBLEM\" and matchesPhrase(event.name,\"SLO Burn rate\") and in(entity_tags,\"slo_level:medium\")\n| fieldsAdd id=affected_entity_ids[0]\n| filter isNotNull(id)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service_method\"), entityName(id, type:\"dt.entity.service_method\"))\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.service\"), entityName(id, type:\"dt.entity.service\"), else:entity)\n| fieldsAdd entity=if(affected_entity_types == array(\"dt.entity.application\"), entityName(id, type:\"dt.entity.application\"), else:entity)\n//| maketimeseries `SLO Burn rate problem`=count(), by:{ entity, event.name, id, display_id, event.id, event.kind }, nonempty:true\n\n",
             "visualization": "lineChart",
