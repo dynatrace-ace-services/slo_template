@@ -31,6 +31,6 @@
   "name": "slo high",
   "variables": {
     "type": "query",
-    "value": "fetch dt.entity.service, from: -7d\n| filter matchesPhrase(tags,\"slo\") and in(tags,\"slo_level:high\") and not(in(tags,{\"slo_level:medium\",\"slo_level:low\"}))\n| expand tags\n| filter matchesPhrase(tags,\"slo\") and not(matchesPhrase(tags,\"slo_alert\"))\n| dedup tags\n| fields tags"
+    "value": " fetch dt.entity.service, from: -7d | filter matchesPhrase(tags,\"slo\") and in(tags,\"slo_level:high\") and not(in(tags,{\"slo_level:low\",\"slo_level:medium\"}))| append [ fetch dt.entity.service_method, from: -7d | filter matchesPhrase(tags,\"slo\") and in(tags,\"slo_level:high\") and not(in(tags,{\"slo_level:low\",\"slo_level:medium\"}))]| append [ fetch dt.entity.application, from: -7d | filter matchesPhrase(tags,\"slo\") and in(tags,\"slo_level:high\") and not(in(tags,{\"slo_level:low\",\"slo_level:medium\"}))]\n| expand tags\n| filter matchesPhrase(tags,\"slo\") and not(matchesPhrase(tags,\"slo_alert\"))\n| dedup tags\n| fields tags"
   }
 }
