@@ -334,7 +334,7 @@ configs:
         name: Dealertingsamples_mediumslo_servicemethodsuccessrate
         type: environment
         default: 5
-    name: SLO Burn Rate - level:medium
+    name: SLO Burn rate - level:medium
     template: dashboard_mediumslo.json
     skip: false
   type:

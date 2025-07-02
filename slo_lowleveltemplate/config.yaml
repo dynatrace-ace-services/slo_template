@@ -334,7 +334,7 @@ configs:
         name: Dealertingsamples_lowslo_servicemethodsuccessrate
         type: environment
         default: 5
-    name: SLO Burn Rate - level:low
+    name: SLO Burn rate - level:low
     template: dashboard_lowslo.json
     skip: false
   type:

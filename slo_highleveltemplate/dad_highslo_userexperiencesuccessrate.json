@@ -41,7 +41,7 @@
     "properties": [
       {
         "key": "dt.source_entity",
-        "value": "{dims:dt.rum.application.entity}"
+        "value": "{dims:dt.entity.application}"
       },
       {
         "key": "event.type",
@@ -49,7 +49,7 @@
       },
       {
         "key": "event.description",
-        "value": "high burn rate alert, affecting: {dims:dt.rum.application.entity}"
+        "value": "high burn rate alert, affecting: {dims:dt.entity.application}"
       },
       {
         "key": "event.name",
