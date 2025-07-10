@@ -1,5 +1,7 @@
 # SLO template for latest Platform
 
+[RFE - thank you for voting](https://community.dynatrace.com/t5/Product-ideas/RFE-Do-not-show-an-error-when-SLO-tile-on-Grail-Dashboard-is/idi-p/281309#M52855)
+
 1) Deploy with monaco these 3 SLO templates
 
         - High
