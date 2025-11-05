@@ -1120,7 +1120,7 @@
                     "colorPalette": "fireplace-inverted",
                     "valueRepresentation": "absolute",
                     "truncationMode": "middle",
-                    "xAxisScaling": "auto",
+                    "xAxisScaling": "analyzedTimeframe",
                     "xAxisLabel": "timestamp",
                     "xAxisIsLabelVisible": false,
                     "hiddenLegendFields": ["id", "event.id", "event.status", "event.category", "dt.davis.mute.status", "event.status_transition", "display_id", "event.kind", "dt.davis.is_duplicate", "maintenance.is_under_maintenance", "dt.davis.is_frequent_event"],
