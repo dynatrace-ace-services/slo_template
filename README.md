@@ -20,7 +20,7 @@
         - slo:<application_context>
         - slo_level:high|medium|low
         - slo_alert:on|off
-        - slo_alert_pert:on|off (for application only)
+        - slo_alert_perf:on|off (for application only)
 
 4) Use recommended values for each template High, Medium and Low, or adapt them for your context :
 
