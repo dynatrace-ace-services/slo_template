@@ -65,7 +65,7 @@
                     "colorPalette": "purple-rain",
                     "valueRepresentation": "absolute",
                     "truncationMode": "middle",
-                    "xAxisScaling": "auto",
+                    "xAxisScaling": "analyzedTimeframe",
                     "xAxisLabel": "timeframe",
                     "xAxisIsLabelVisible": false,
                     "hiddenLegendFields": ["id", "display_id", "event.id", "event.kind"],
@@ -488,7 +488,7 @@
         "13": {
             "title": "",
             "type": "data",
-            "query": "fetch dt.davis.problems\n| fieldsAdd segment=record(segment=$dt_filter_segments, segmentID=\"{{ .segmentId }}\")\n| parse segment[segment], \"\"\"LD '\\\"id\\\":\\\"' WORD:segment_id \"\"\"\n| filter segment_id==segment[segmentID]\n\n| filter event.kind == \"DAVIS_PROBLEM\" and in(entity_tags,\"slo_level:medium\")\n| fieldsAdd status=if(event.status ==\"ACTIVE\",\"🔴\", else: \"🟡\")\n| fieldsAdd status=if(isNotNull(status),status, else: \"🟢\" )\n| fields timestamp, status, event.name, event.category, event.description, event.status, display_id, event.id\n| sort status, timestamp desc\n| limit 100\n",
+            "query": "fetch dt.davis.problems\n| fieldsAdd segment=record(segment=$dt_filter_segments, segmentID=\"{{ .segmentId }}\")\n| parse segment[segment], \"\"\"LD '\\\"id\\\":\\\"' WORD:segment_id \"\"\"\n| filter segment_id==segment[segmentID]\n\n| filter event.kind == \"DAVIS_PROBLEM\" and in(entity_tags,\"slo_level:medium\")\n| fieldsAdd status=if(event.status ==\"ACTIVE\",\"🔴\", else: \"🟡\")\n| fieldsAdd status=if(isNotNull(status),status, else: \"🟢\" )\n| fields timestamp, status, event.name, event.category, event.description, event.status, display_id, event.id, event.kind, event.kind\n| sort status, timestamp desc\n| limit 100\n",
             "visualization": "table",
             "visualizationSettings": {
                 "thresholds": [],
